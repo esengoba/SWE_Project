@@ -1,9 +1,9 @@
 301
 Who was the first U.S. president to have been born in a hospital?
-302 - REDO!! + answer
-When was Spelman founded?
-303 - REDO!! + answer
-When was Morehouse founded?
+302
+Which famous artist cut off part of his own ear?
+303
+How many hours are there in one full week?
 304
 What is  the name of the biggest ocean in the world?
 305
@@ -16,8 +16,8 @@ Which of these sorting algorithm uses the concept of a "pivot" element?
 When referring to a USB port, what do the letter USB stand for?
 309
 What is the chemical symbol for magnesium on the periodic table?
-310 - REDO!! + answer
-What is the capital of Georgia?
+310
+In which country were 'The Lord of the Rings' movies filmed?
 311
 Which celebration is less commonly known as 'the eve of All Saints' Day'?
 312
