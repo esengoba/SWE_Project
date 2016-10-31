@@ -13,6 +13,11 @@ import model.Question;
 import static view.Constants.WINDOW_HEIGHT;
 import static view.Constants.WINDOW_WIDTH;
 
+/**The View class creates a single frame where different panels (or
+ * interfaces) are interchanged. There are five key panels which
+ * extend from an abstract class: background panel, category panel,
+ * the home panel,ready panel, and questions panel.
+ */
 public class View extends JFrame implements ActionListener {
     private Model model;
 
@@ -49,14 +54,17 @@ public class View extends JFrame implements ActionListener {
 
 
     }
-    // Add this as ActionListener for all buttons
+    /* Add this as ActionListener for all buttons */
     public void addActionListener(ArrayList<JButton> buttons){
 
         for (JButton button: buttons){
             button.addActionListener(this);
         }
     }
-
+    /**This function updates the question content for the question
+     * interface. It uses the Question class' methods to get a single
+     * question, and the respective answers and displays on the screen.
+     */
     public void updateQuestionContent(){
         //get question
         int quesID = question.getCurrentQuestionNumber();
@@ -80,6 +88,12 @@ public class View extends JFrame implements ActionListener {
 
     }
 
+    /** This implements the action listener for the View class allowing for each
+     * of the button to carry out a set of functions when pressed. The switch
+     * statements allow for the illusion of moving from screen to screen( relayering
+     * of individual panels).
+     * @param e : result of the button pressed on the screen
+     */
 
     @Override
     public void actionPerformed(ActionEvent e) {

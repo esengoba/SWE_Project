@@ -6,10 +6,10 @@ D. 3
 C. 5
 102
 A. Melania
-B. Jett's real name
-C. RealJett
-D. Elizabeth
-B. Jett's real name
+B. Brygette
+C. Jeanette
+D. Jennifer
+B. Brygette
 103
 A. Zanzibar
 B. Zimbabwe
@@ -17,11 +17,11 @@ C. Zambia
 D. Zaire
 B. Zimbabwe
 104
-A. Oakland, CA
-B. Brooklyn, NY
-C. Birmingham, AL
-D. None of the above
-D. None of the above
+A. Newfoundland
+B. Montreal
+C. Vancouver
+D. Toronto
+D. Montreal
 105
 A. Patricia
 B. Mary
@@ -31,15 +31,15 @@ C. Patrice
 106
 A. Fortran
 B. Swift
-C. Visual Basic
-D. None of the above
-D. None of the above
+C. Python
+D. Java
+D. Java
 107
-A. The Martian
-B. Inside Out
-C. Queen of Katwe
-D. None of the above
-D. None of the above
+A. Grey's Anatomy
+B. Parks & Recreation
+C. Games of Thrones
+D. Black-ish
+D. Grey's Anatomy
 108
 A. Matthew James
 B. Maurita Ament
@@ -51,21 +51,31 @@ A. Elizabeth Sengoba
 B. Jett Bagley
 C. Mariah Cowling
 D. Josuel Musambaghani
-B. Jett Bagley
+D. Josuel Musambaghani
 110
-A. Cierra Lewis
-B. Rachelle Minor
-C. Mariah Cowling
-D. Malika Watler
-C. Mariah Cowling
-111
 A. Carlette Odemwingie
-B. Cierra Lewis
-C. Mariah Cowling
+B. Ropa Denga
+C. Josuel Musambaghani
 D. Matthew James
 A. Carlette Odemwingie
+111
+A. Mariah Cowling
+B. Malika Walter
+C. Elizabeth Sengoba
+D. Matthew James
+C. Elizabeth Sengoba
 112
+A. Mariah Cowling
+B. Maurita Ament
+C. Rachelle Minor
+D. Franck Nijimbere
+A. Mariah Cowling
 113
+A. Mountainview, CA
+B. New York, NY
+C. Ann Harbor, MI
+D. Los Angeles, CA
+B. New York, NY
 114
 115
 116
