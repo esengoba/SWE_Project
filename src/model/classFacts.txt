@@ -1,34 +1,36 @@
-101
+501
 How many languages does Josuel speak?
-102
+502
 What is Jett’s real name?
-103
+503
 Where is Ropa from?
-104
+504
 Where is Elizabeth really from?
-105
+505
 What is Michelle’s middle name?
-106
+506
 What is Michelle’s favorite programming language?
-107
+507
 Elizabeth's all-time favorite TV-show?
-108
+508
 I am from The Lone Star State, and I was born the same year the Atlanta Braves won the World Series. Who am I?
-109
+509
 White babies born in my home city have six more years of life expectancy than African-American babies. Who am I?
-110
+510
 I once ate 18 sticks of mentos in a single day? Who am I?
-111
+511
 As a child, I met Kobe Bryant in a grocery store?
-112
+512
 I am vegan.
-113
+513
 Which Google office does Michelle work from?
-114
-<Start here!>
-115
-116
-117
-118
-119
-120
+514
+Which of the following has tried morphine?
+515
+Which SWE class member is a felon?
+516
+Who never spent more than one night away from home before coming to college?
+517
+Who studied theater at the same arts school Tupac did?
+518
+Who used to date in SWE class?

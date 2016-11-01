@@ -1,85 +1,109 @@
-101
+501
 A. 1
 B. 4
 C. 5
 D. 3
 C. 5
-102
+502
 A. Melania
 B. Brygette
 C. Jeanette
 D. Jennifer
 B. Brygette
-103
+503
 A. Zanzibar
 B. Zimbabwe
 C. Zambia
 D. Zaire
 B. Zimbabwe
-104
+504
 A. Newfoundland
 B. Montreal
 C. Vancouver
 D. Toronto
 D. Montreal
-105
+505
 A. Patricia
 B. Mary
 C. Patrice
 D. Adele
 C. Patrice
-106
+506
 A. Fortran
 B. Swift
 C. Python
 D. Java
 D. Java
-107
+507
 A. Grey's Anatomy
 B. Parks & Recreation
 C. Games of Thrones
 D. Black-ish
 D. Grey's Anatomy
-108
-A. Matthew James
-B. Maurita Ament
-C. Jett Bagley
-D. Franck Nijimbere
-A. Matthew James
-109
-A. Elizabeth Sengoba
-B. Jett Bagley
-C. Mariah Cowling
-D. Josuel Musambaghani
-D. Josuel Musambaghani
-110
-A. Carlette Odemwingie
-B. Ropa Denga
-C. Josuel Musambaghani
-D. Matthew James
-A. Carlette Odemwingie
-111
-A. Mariah Cowling
-B. Malika Walter
-C. Elizabeth Sengoba
-D. Matthew James
-C. Elizabeth Sengoba
-112
-A. Mariah Cowling
-B. Maurita Ament
-C. Rachelle Minor
-D. Franck Nijimbere
-A. Mariah Cowling
-113
+508
+A. Matthew
+B. Maurita
+C. Jett
+D. Franck
+A. Matthew
+509
+A. Elizabeth
+B. Jett
+C. Mariah
+D. Josuel
+D. Josuel
+510
+A. Carlette
+B. Ropa
+C. Josuel
+D. Matthew
+A. Carlette
+511
+A. Mariah
+B. Malika
+C. Elizabeth
+D. Matthew
+C. Elizabeth
+512
+A. Mariah
+B. Maurita
+C. Rachelle
+D. Franck
+A. Mariah
+513
 A. Mountainview, CA
 B. New York, NY
 C. Ann Harbor, MI
 D. Los Angeles, CA
 B. New York, NY
-114
-115
-116
-117
-118
-119
-120
+514
+A. Cierra
+B. Rachelle
+C. Takeria
+D. Maurita
+B. Rachelle
+515
+A. Jett
+B. Carlette
+C. Malika
+D. Takira
+B. Carlette
+516
+A. Frank
+B. Matthew
+C. Maurita
+D. Ropa
+A. Frank
+517
+A. Elizabeth
+B. Takira
+C. Mariah
+D. Jett
+D. Jett
+518
+A. Frank and Elizabeth
+B. Matthew and Seleste
+C. Matthew and Mariah
+D. Jett abd Maurita
+B. Matthew and Seleste
+

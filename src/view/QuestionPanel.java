@@ -11,6 +11,7 @@ public class QuestionPanel extends MyPanel {
 
     HashMap<String, String> questionMap = new HashMap<>();
     HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
+    ArrayList<String> playerAnswers = new ArrayList<String>();
 
     JButton ansButton1 = createButton("A");
     JButton ansButton2 = createButton("B");
@@ -89,7 +90,11 @@ public class QuestionPanel extends MyPanel {
                 /* Restart the timer*/
                 /*Update the pages*/
                 /*Store their selection in the user answer map*/
+
+                System.out.println("She pressed" + text);
+                playerAnswers.add(text);
                 System.out.println(text);
+                //change screen
 
             }
         });
