@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class Question {
 
-        int num = 0, categoryID, range;
+        int num = 0, categoryID, randomID;
         String pathName = "";
         String pathNameAnswers = "";
 
@@ -141,35 +141,29 @@ public class Question {
 
      }
 
-    /**This method randomly generates a question ID number*/
+    /**This method randomly generates a question ID number.*/
      public int selectQuestion(){
          Random random = new Random();
 
          if (categoryID == 1) { //Geek Out
-             range = (int )(Math.random() * (120 - 101) + 101);
-             System.out.println("hi1 " +range);
+             randomID = (int )(Math.random() * (120 - 101) + 101);
 
          } else if (categoryID == 2){ //Jams
-             range = (int )(Math.random() * (220 - 201) + 201);
-             System.out.println("hi2 " +range);
+             randomID = (int )(Math.random() * (220 - 201) + 201);
 
          } else if (categoryID == 3){ //Foodie
-             range = (int )(Math.random() * (320 - 301) + 301);
-             System.out.println("hi3 " +range);
+             randomID = (int )(Math.random() * (320 - 301) + 301);
 
          } else if(categoryID == 4){//Ratchet
-             range = (int )(Math.random() * (405 - 401) + 401);
-             System.out.println("hi4 " +range);
+             randomID = (int )(Math.random() * (405 - 401) + 401);
 
          } else if(categoryID == 5){//Class Facts
-             range = (int )(Math.random() * (505 - 501) + 501);
-             System.out.println("hi5 " +range);
+             randomID = (int )(Math.random() * (505 - 501) + 501);
 
          } else if(categoryID == 6){ //Random
-             range = (int )(Math.random() * (605 - 601) + 601);
-             System.out.println("hi6 " +range);
+             randomID = (int )(Math.random() * (605 - 601) + 601);
          }
-         return range;
+         return randomID;
      }
 
 }
