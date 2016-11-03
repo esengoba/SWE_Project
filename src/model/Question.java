@@ -1,4 +1,8 @@
 package model;
+import view.Constants;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Timer;
 
 /** The Question class is responsible for reading in questions and answers from
  * each respective category and saving them to a data structure. This class
@@ -25,10 +30,10 @@ public class Question {
 
     /** Gets the current question number during game play */
         public int getCurrentQuestionNumber() {
-            if (num > 11){
-                return num = 0;
+            if (num < 11){
+                return num++;
             }
-            return num + 1;
+            return num = 0;
         }
 
     /**
