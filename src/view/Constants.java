@@ -36,5 +36,6 @@ public class Constants {
     public static final String EARLY2000JAMS = "EARLY 2000s JAMS";
     public static final String RATCHETFACTS = "RATCHET FACTS";
     public static final String SWECLASSFUNNYFACTS = "SWE CLASS FUNNY FACTS";
+    public static final String RANDOM = "RANDOM";
 
 }

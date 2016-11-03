@@ -143,7 +143,7 @@ public class View extends JFrame implements ActionListener {
                 question.setCategoryPathName(5);
                 //updateQuestionContent();
                 break;
-            case "RANDOM":
+            case Constants.RANDOM:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
@@ -171,7 +171,5 @@ public class View extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         View v = new View();
-
-
     }
 }
