@@ -1,5 +1,6 @@
 package view;
 import model.Model;
+import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,15 +28,19 @@ public class View extends JFrame implements ActionListener {
     private ReadyPanel readyPanel = new ReadyPanel();
     public Question question;
     private JPanel lastPage = new JPanel();
-    private QuestionPanel questionPanel;
+    public QuestionPanel questionPanel;
     JLayeredPane layered = new JLayeredPane();
+    public Controller controller;
+    int quesID;
 
 
     public View() {
         try {
             question = new Question();
         } catch (IOException ex) {}
-        questionPanel = new QuestionPanel();
+        controller = new Controller(this);
+        questionPanel = new QuestionPanel(controller);
+
         updateQuestionContent(); //CALL TO UPDATE QUESTION CONTENT
         model = new Model();
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -47,7 +52,6 @@ public class View extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
         addActionListener(homePanel.getButton());
         addActionListener(categoryPanel.getButton());
         addActionListener(readyPanel.getButton());
@@ -59,6 +63,7 @@ public class View extends JFrame implements ActionListener {
 
         for (JButton button: buttons){
             button.addActionListener(this);
+
         }
     }
     /**This function updates the question content for the question
@@ -67,7 +72,7 @@ public class View extends JFrame implements ActionListener {
      */
     public void updateQuestionContent(){
         //get question
-        int quesID = question.getCurrentQuestionNumber();
+            quesID = question.getCurrentQuestionNumber();
             questionPanel.progbar.setValue(quesID);
             questionPanel.questionNumLabel.setText(Integer.toString(quesID));
             //update the question label on the screen
@@ -143,7 +148,7 @@ public class View extends JFrame implements ActionListener {
                 question.setCategoryPathName(5);
                 //updateQuestionContent();
                 break;
-            case "RANDOM":
+            case Constants.RANDOM:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
@@ -171,7 +176,5 @@ public class View extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         View v = new View();
-
-
     }
 }

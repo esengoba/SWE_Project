@@ -1,4 +1,8 @@
 package model;
+import view.Constants;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Timer;
 
 /** The Question class is responsible for reading in questions and answers from
  * each respective category and saving them to a data structure. This class
@@ -25,10 +30,10 @@ public class Question {
 
     /** Gets the current question number during game play */
         public int getCurrentQuestionNumber() {
-            if (num > 11){
-                return num = 0;
+            if (num < 11){
+                return num++;
             }
-            return num + 1;
+            return num = 0;
         }
 
     /**
@@ -114,36 +119,12 @@ public class Question {
      */
      public void setCategoryPathName(int path) {
 
-         switch (path){
-             case 1: pathName = "src/model/geekout.txt";
-                 pathNameAnswers = "src/model/geekoutAnswers.txt";
-                 categoryID = path;
-                 break;
-             case 2: pathName = "src/model/jams.txt";
-                 pathNameAnswers = "src/model/jamsAnswers.txt";
-                 categoryID = path;
-                 break;
-             case 3: pathName = "src/model/foodie.txt";
-                 pathNameAnswers = "src/model/foodieAnswers.txt";
-                 categoryID = path;
-                 break;
-             case 4: pathName = "src/model/ratchet.txt";
-                 pathNameAnswers = "src/model/ratchetAnswers.txt";
-                 categoryID = path;
-                 break;
-             case 5: pathName = "src/model/classFacts.txt";
-                 pathNameAnswers = "src/model/classFactsAnswers.txt";
-                 categoryID = path;
-                 break;
-             case 6: pathName = "src/model/random.txt";
-                 pathNameAnswers = "src/model/randomAnswers.txt";
-                 categoryID = path;
-                 break;
-             default: break;
-         }
+         String[] questions = {"geekout.txt", "jams.txt", "foodie.txt", "ratchet.txt", "classFacts.txt", "random.txt"};
+         String[] answers = {"geekoutAnswers.txt", "jamsAnswers.txt","foodieAnswers.txt","ratchetAnswers.txt","classFactsAnswers.txt", "randomAnswers.txt"};
 
-
-
+         pathName = "src/model/questions/" + questions[path-1];
+         pathNameAnswers = "src/model/answers/" + answers[path-1];
+         categoryID = path;
      }
 
     /**This method randomly generates a question ID number.*/
