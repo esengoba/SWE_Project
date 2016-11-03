@@ -113,31 +113,36 @@ public class Question {
      * @param path
      */
      public void setCategoryPathName(int path) {
-         if (path == 1) {
-             pathName = "src/model/geekout.txt";
-             pathNameAnswers = "src/model/geekoutAnswers.txt";
-             categoryID = path;
-         } else if(path == 2){
-             pathName = "src/model/jams.txt";
-             pathNameAnswers = "src/model/jamsAnswers.txt";
-             categoryID = path;
-         } else if (path == 3){
-             pathName = "src/model/foodie.txt";
-             pathNameAnswers = "src/model/foodieAnswers.txt";
-             categoryID = path;
-         } else if (path == 4){
-             pathName = "src/model/ratchet.txt";
-             pathNameAnswers = "src/model/ratchetAnswers.txt";
-             categoryID = path;
-         } else if (path == 5){
-             pathName = "src/model/classFacts.txt";
-             pathNameAnswers = "src/model/classFactsAnswers.txt";
-             categoryID = path;
-         } else{
-             pathName = "src/model/random.txt";
-             pathNameAnswers = "src/model/randomAnswers.txt";
-             categoryID = path;
+
+         switch (path){
+             case 1: pathName = "src/model/geekout.txt";
+                 pathNameAnswers = "src/model/geekoutAnswers.txt";
+                 categoryID = path;
+                 break;
+             case 2: pathName = "src/model/jams.txt";
+                 pathNameAnswers = "src/model/jamsAnswers.txt";
+                 categoryID = path;
+                 break;
+             case 3: pathName = "src/model/foodie.txt";
+                 pathNameAnswers = "src/model/foodieAnswers.txt";
+                 categoryID = path;
+                 break;
+             case 4: pathName = "src/model/ratchet.txt";
+                 pathNameAnswers = "src/model/ratchetAnswers.txt";
+                 categoryID = path;
+                 break;
+             case 5: pathName = "src/model/classFacts.txt";
+                 pathNameAnswers = "src/model/classFactsAnswers.txt";
+                 categoryID = path;
+                 break;
+             case 6: pathName = "src/model/random.txt";
+                 pathNameAnswers = "src/model/randomAnswers.txt";
+                 categoryID = path;
+                 break;
+             default: break;
          }
+
+
 
      }
 
@@ -145,23 +150,20 @@ public class Question {
      public int selectQuestion(){
          Random random = new Random();
 
-         if (categoryID == 1) { //Geek Out
-             randomID = (int )(Math.random() * (120 - 101) + 101);
-
-         } else if (categoryID == 2){ //Jams
-             randomID = (int )(Math.random() * (220 - 201) + 201);
-
-         } else if (categoryID == 3){ //Foodie
-             randomID = (int )(Math.random() * (320 - 301) + 301);
-
-         } else if(categoryID == 4){//Ratchet
-             randomID = (int )(Math.random() * (405 - 401) + 401);
-
-         } else if(categoryID == 5){//Class Facts
-             randomID = (int )(Math.random() * (505 - 501) + 501);
-
-         } else if(categoryID == 6){ //Random
-             randomID = (int )(Math.random() * (605 - 601) + 601);
+         switch (categoryID){
+             case 1: randomID = (int )(Math.random() * (120 - 101) + 101);
+                 break; //Geek Out
+             case 2: randomID = (int )(Math.random() * (220 - 201) + 201);
+                 break; //Jams
+             case 3: randomID = (int )(Math.random() * (320 - 301) + 301);
+                 break; //Foodie
+             case 4: randomID = (int )(Math.random() * (405 - 401) + 401);
+                 break;//Ratchet
+             case 5: randomID = (int )(Math.random() * (505 - 501) + 501);
+                 break;//Class Facts
+             case 6: randomID = (int )(Math.random() * (605 - 601) + 601);
+                 break; //Random
+             default: break;
          }
          return randomID;
      }
