@@ -11,8 +11,8 @@ import java.util.*;
 
 public class QuestionPanel extends MyPanel {
 
-    HashMap<String, String> questionMap = new HashMap<>();
-    HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
+    public HashMap<String, String> questionMap = new HashMap<>();
+    public HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
     ArrayList<String> playerAnswers = new ArrayList<String>();
 
     JButton ansButton1 = createButton("A");
