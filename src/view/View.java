@@ -11,6 +11,7 @@ import java.util.*;
 
 
 import model.Question;
+import model.Score;
 import static view.Constants.WINDOW_HEIGHT;
 import static view.Constants.WINDOW_WIDTH;
 
@@ -31,7 +32,9 @@ public class View extends JFrame implements ActionListener {
     public QuestionPanel questionPanel;
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
+    public Score score;
     int quesID;
+    public String nextQuestion;
 
 
     public View() {
@@ -39,6 +42,7 @@ public class View extends JFrame implements ActionListener {
             question = new Question();
         } catch (IOException ex) {}
         controller = new Controller(this);
+        score = new Score(this);
         questionPanel = new QuestionPanel(controller);
 
         updateQuestionContent(); //CALL TO UPDATE QUESTION CONTENT
@@ -81,7 +85,7 @@ public class View extends JFrame implements ActionListener {
                 questionPanel.answerMap = question.getAnswers();
 
             } catch (IOException ex) {}
-            String nextQuestion = Integer.toString(question.selectQuestion());
+            nextQuestion = Integer.toString(question.selectQuestion());
             questionPanel.questionLabel.setText(questionPanel.questionMap.get(nextQuestion));
 
             questionPanel.ansButton1.setText(questionPanel.answerMap.get(nextQuestion).get(0));

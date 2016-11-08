@@ -1,6 +1,7 @@
 package controller;
 
 import view.View;
+import model.Score;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,13 +12,27 @@ import java.awt.event.ActionListener;
  */
 public class Controller implements ActionListener {
     View controllerView;
+    Score controllerScore;
+
+    public String responseSelected = "";
     public Controller(View view){
-         controllerView = view;
+        controllerView = view;
     }
+
+    public Controller (Score score){
+        controllerScore = score;
+    }
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        responseSelected = e.getActionCommand();
+        /**THE ISSUES IS HERE WHEN YOU UNCOMMENT THESE LINES**/
+        // controllerScore.updateAnswerArray(responseSelected);
+        // controllerScore.updateScore();
         controllerView.updateQuestionContent();
+
     }
 }
 
