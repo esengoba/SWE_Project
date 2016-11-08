@@ -1,6 +1,8 @@
 package view;
 
 
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,8 +11,8 @@ import java.util.*;
 
 public class QuestionPanel extends MyPanel {
 
-    HashMap<String, String> questionMap = new HashMap<>();
-    HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
+    public HashMap<String, String> questionMap = new HashMap<>();
+    public HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
     ArrayList<String> playerAnswers = new ArrayList<String>();
 
     JButton ansButton1 = createButton("A");
@@ -20,10 +22,10 @@ public class QuestionPanel extends MyPanel {
     JLabel questionNumLabel = new JLabel("Question ID");
     JLabel questionLabel = new JLabel("Question");
     JProgressBar progbar = new JProgressBar (0, 10);
-
-    public QuestionPanel(){
+    Controller controller;
+    public QuestionPanel(Controller controller){
         super();
-
+        this.controller = controller;
         setOpaque(false);
         setBounds(0,0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
         setLayout(new GridLayout(9,1));
@@ -48,14 +50,13 @@ public class QuestionPanel extends MyPanel {
         answerButtonActions(ansButton4);
         //updateQuestionContent();
 
-    }
 
+    }
 
     public void countdown(){
         JLabel counter = new JLabel("Counter from 10 to 0", SwingConstants.CENTER);
         counter.setFont(Constants.QUESTION_FONT);
         add(counter);
-
 
         final java.util.Timer timer = new java.util.Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -79,7 +80,7 @@ public class QuestionPanel extends MyPanel {
 
     /*Double check the right action listeners are implemented*/
     public void answerButtonActions(JButton button) {
-
+        button.addActionListener(controller);
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,6 +96,7 @@ public class QuestionPanel extends MyPanel {
                 playerAnswers.add(text);
                 System.out.println(text);
                 //change screen
+
 
             }
         });

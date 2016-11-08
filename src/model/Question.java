@@ -1,4 +1,8 @@
 package model;
+import view.Constants;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Timer;
 
 /** The Question class is responsible for reading in questions and answers from
  * each respective category and saving them to a data structure. This class
@@ -14,7 +19,7 @@ import java.util.Random;
  */
 public class Question {
 
-        int num = 0, categoryID, range;
+        int num = 0, categoryID, randomID;
         String pathName = "";
         String pathNameAnswers = "";
 
@@ -25,10 +30,10 @@ public class Question {
 
     /** Gets the current question number during game play */
         public int getCurrentQuestionNumber() {
-            if (num > 11){
-                return num = 0;
+            if (num < 11){
+                return num++;
             }
-            return num + 1;
+            return num = 0;
         }
 
     /**
@@ -113,63 +118,35 @@ public class Question {
      * @param path
      */
      public void setCategoryPathName(int path) {
-         if (path == 1) {
-             pathName = "src/model/geekout.txt";
-             pathNameAnswers = "src/model/geekoutAnswers.txt";
-             categoryID = path;
-         } else if(path == 2){
-             pathName = "src/model/jams.txt";
-             pathNameAnswers = "src/model/jamsAnswers.txt";
-             categoryID = path;
-         } else if (path == 3){
-             pathName = "src/model/foodie.txt";
-             pathNameAnswers = "src/model/foodieAnswers.txt";
-             categoryID = path;
-         } else if (path == 4){
-             pathName = "src/model/ratchet.txt";
-             pathNameAnswers = "src/model/ratchetAnswers.txt";
-             categoryID = path;
-         } else if (path == 5){
-             pathName = "src/model/classFacts.txt";
-             pathNameAnswers = "src/model/classFactsAnswers.txt";
-             categoryID = path;
-         } else{
-             pathName = "src/model/random.txt";
-             pathNameAnswers = "src/model/randomAnswers.txt";
-             categoryID = path;
-         }
 
+         String[] questions = {"geekout.txt", "jams.txt", "foodie.txt", "ratchet.txt", "classFacts.txt", "random.txt"};
+         String[] answers = {"geekoutAnswers.txt", "jamsAnswers.txt","foodieAnswers.txt","ratchetAnswers.txt","classFactsAnswers.txt", "randomAnswers.txt"};
+
+         pathName = "src/model/questions/" + questions[path-1];
+         pathNameAnswers = "src/model/answers/" + answers[path-1];
+         categoryID = path;
      }
 
-    /**This method randomly generates a question ID number*/
+    /**This method randomly generates a question ID number.*/
      public int selectQuestion(){
          Random random = new Random();
 
-         if (categoryID == 1) { //Geek Out
-             range = (int )(Math.random() * (120 - 101) + 101);
-             System.out.println("hi1 " +range);
-
-         } else if (categoryID == 2){ //Jams
-             range = (int )(Math.random() * (220 - 201) + 201);
-             System.out.println("hi2 " +range);
-
-         } else if (categoryID == 3){ //Foodie
-             range = (int )(Math.random() * (320 - 301) + 301);
-             System.out.println("hi3 " +range);
-
-         } else if(categoryID == 4){//Ratchet
-             range = (int )(Math.random() * (405 - 401) + 401);
-             System.out.println("hi4 " +range);
-
-         } else if(categoryID == 5){//Class Facts
-             range = (int )(Math.random() * (505 - 501) + 501);
-             System.out.println("hi5 " +range);
-
-         } else if(categoryID == 6){ //Random
-             range = (int )(Math.random() * (605 - 601) + 601);
-             System.out.println("hi6 " +range);
+         switch (categoryID){
+             case 1: randomID = (int )(Math.random() * (120 - 101) + 101);
+                 break; //Geek Out
+             case 2: randomID = (int )(Math.random() * (220 - 201) + 201);
+                 break; //Jams
+             case 3: randomID = (int )(Math.random() * (320 - 301) + 301);
+                 break; //Foodie
+             case 4: randomID = (int )(Math.random() * (405 - 401) + 401);
+                 break;//Ratchet
+             case 5: randomID = (int )(Math.random() * (505 - 501) + 501);
+                 break;//Class Facts
+             case 6: randomID = (int )(Math.random() * (605 - 601) + 601);
+                 break; //Random
+             default: break;
          }
-         return range;
+         return randomID;
      }
 
 }
