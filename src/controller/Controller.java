@@ -15,13 +15,14 @@ public class Controller implements ActionListener {
     Score controllerScore;
 
     public String responseSelected = "";
-    public Controller(View view){
+    public Controller(View view, Score score){
         controllerView = view;
-    }
-
-    public Controller (Score score){
         controllerScore = score;
     }
+
+    /*public Controller (Score score){
+        controllerScore = score;
+    }*/
 
 
 
@@ -29,8 +30,8 @@ public class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         responseSelected = e.getActionCommand();
         /**THE ISSUES IS HERE WHEN YOU UNCOMMENT THESE LINES**/
-        // controllerScore.updateAnswerArray(responseSelected);
-        // controllerScore.updateScore();
+        controllerScore.updateAnswerArray(responseSelected);
+        controllerScore.updateScore(responseSelected);
         controllerView.updateQuestionContent();
 
     }

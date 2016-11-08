@@ -21,7 +21,7 @@ A. Newfoundland
 B. Montreal
 C. Vancouver
 D. Toronto
-D. Montreal
+B. Montreal
 505
 A. Patricia
 B. Mary
