@@ -1,5 +1,6 @@
 package view;
 import model.Model;
+import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +11,7 @@ import java.util.*;
 
 
 import model.Question;
+import model.Score;
 import static view.Constants.WINDOW_HEIGHT;
 import static view.Constants.WINDOW_WIDTH;
 
@@ -27,16 +29,23 @@ public class View extends JFrame implements ActionListener {
     private ReadyPanel readyPanel = new ReadyPanel();
     public Question question;
     private JPanel lastPage = new JPanel();
-    private QuestionPanel questionPanel;
+    public QuestionPanel questionPanel;
     JLayeredPane layered = new JLayeredPane();
+    public Controller controller;
+    public Score score;
+    int quesID;
+    public String nextQuestion;
 
 
     public View() {
         try {
             question = new Question();
         } catch (IOException ex) {}
-        questionPanel = new QuestionPanel();
-        updateQuestionContent();
+        controller = new Controller(this);
+        score = new Score(this);
+        questionPanel = new QuestionPanel(controller);
+
+        updateQuestionContent(); //CALL TO UPDATE QUESTION CONTENT
         model = new Model();
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setTitle("Name that Thing! -- Home");
@@ -47,7 +56,6 @@ public class View extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
         addActionListener(homePanel.getButton());
         addActionListener(categoryPanel.getButton());
         addActionListener(readyPanel.getButton());
@@ -59,6 +67,7 @@ public class View extends JFrame implements ActionListener {
 
         for (JButton button: buttons){
             button.addActionListener(this);
+
         }
     }
     /**This function updates the question content for the question
@@ -67,25 +76,25 @@ public class View extends JFrame implements ActionListener {
      */
     public void updateQuestionContent(){
         //get question
-        int quesID = question.getCurrentQuestionNumber();
-        questionPanel.progbar.setValue(quesID);
-        questionPanel.questionNumLabel.setText(Integer.toString(quesID));
-        //update the question label on the screen
-        try {
-            questionPanel.questionMap = question.getQuestion();
-            questionPanel.answerMap = question.getAnswers();
+            quesID = question.getCurrentQuestionNumber();
+            questionPanel.progbar.setValue(quesID);
+            questionPanel.questionNumLabel.setText(Integer.toString(quesID));
+            //update the question label on the screen
+            try {
+                questionPanel.questionMap = question.getQuestion();
+                questionPanel.answerMap = question.getAnswers();
 
-        } catch (IOException ex) {}
+            } catch (IOException ex) {}
+            nextQuestion = Integer.toString(question.selectQuestion());
+            questionPanel.questionLabel.setText(questionPanel.questionMap.get(nextQuestion));
 
-        questionPanel.questionLabel.setText( questionPanel.questionMap.get("301"));
+            questionPanel.ansButton1.setText(questionPanel.answerMap.get(nextQuestion).get(0));
+            questionPanel.ansButton2.setText(questionPanel.answerMap.get(nextQuestion).get(1));
+            questionPanel.ansButton3.setText(questionPanel.answerMap.get(nextQuestion).get(2));
+            questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
 
-        questionPanel.ansButton1.setText(questionPanel.answerMap.get("301").get(0));
-        questionPanel.ansButton2.setText(questionPanel.answerMap.get("301").get(1));
-        questionPanel.ansButton3.setText(questionPanel.answerMap.get("301").get(2));
-        questionPanel.ansButton4.setText(questionPanel.answerMap.get("301").get(3));
-
-        System.out.println(questionPanel.answerMap);
-
+            System.out.println(questionPanel.answerMap);
+            // wait for answer to be selected
     }
 
     /** This implements the action listener for the View class allowing for each
@@ -112,26 +121,43 @@ public class View extends JFrame implements ActionListener {
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
+                question.setCategoryPathName(1);
+                //updateQuestionContent();
                 break;
             case Constants.EARLY2000JAMS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
+                question.setCategoryPathName(2);
+                //updateQuestionContent();
                 break;
             case Constants.FOODIE:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
+                question.setCategoryPathName(3);
+                //updateQuestionContent();
                 break;
             case Constants.RATCHETFACTS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
+                question.setCategoryPathName(4);
+                //updateQuestionContent();
                 break;
             case Constants.SWECLASSFUNNYFACTS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
+                question.setCategoryPathName(5);
+                //updateQuestionContent();
+                break;
+            case Constants.RANDOM:
+                layered.removeAll();
+                layered.add(readyPanel);
+                layered.add(backgroundPanel);
+                question.setCategoryPathName(6);
+                //updateQuestionContent();
                 break;
             case Constants.READY:
                 setTitle("Name that Thing! -- Question");
@@ -139,6 +165,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(questionPanel);
                 layered.add(backgroundPanel);
                 questionPanel.countdown();
+                updateQuestionContent();
                 break;
             case Constants.BACK:                       /*Not fully functional*/
                 setTitle("Name that Thing! -- Home");  /*Implement to return to the last visited panel*/
@@ -153,7 +180,5 @@ public class View extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         View v = new View();
-
-
     }
 }

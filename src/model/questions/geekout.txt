@@ -1,46 +1,42 @@
-301
+101
 Who was the first U.S. president to have been born in a hospital?
-302
+102
 Which famous artist cut off part of his own ear?
-303
+103
 How many hours are there in one full week?
-304
+104
 What is  the name of the biggest ocean in the world?
-305
+105
 What is the southernmost country in Africa?
-306
+106
 In what year was the first iPhone released?
-307
+107
 Which of these sorting algorithm uses the concept of a "pivot" element?
-308
+108
 When referring to a USB port, what do the letter USB stand for?
-309
+109
 What is the chemical symbol for magnesium on the periodic table?
-310
+110
 In which country were 'The Lord of the Rings' movies filmed?
-311
+111
 Which celebration is less commonly known as 'the eve of All Saints' Day'?
-312
+112
 What is the time difference between London, UK and Sydney, Australia?
-313
+113
 What is the largest internal organ of the human body?
-314
+114
 What is known as the "master gland" of the human body?
-315
+115
 What year was Facebook founded?
-316
+116
 What is the name of the main protagonist in the Legend of Zelda?
-317
-318
-319
-320
-321
+117
 Which was the first the Harry Potter Movie to come out?
-322
+118
 What country sits between France and Spain?
-323
-The assination of the archduke of which country led the the begining of the First World War?
-324
+119
+The assassination of the archduke of which country led the the begining of the First World War?
+120
 Which animal is known to carry leprosy?
-325
+121
 What is the only country in the Middle East that does not have a desert?

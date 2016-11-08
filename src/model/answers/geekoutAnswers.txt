@@ -1,128 +1,124 @@
-301
+101
 A. George Washington
 B. John F Kennedy
 C. Barack Obama
 D. Jimmy Carter
 D. Jimmy Carter
-302
+102
 A. Fridah Kalho
 B. Henry Matisse
 C. Pablo Picasso
 D. Van Gogh
 D. Van Gogh
-303
+103
 A. 168
 B. 185
 C. 240
 D. 208
 A. 168
-304
+104
 A. Pacific Ocean
 B. Indian Ocean
 C. Southern Ocean
 D. Atlantic Ocean
 A. Pacific Ocean
-305
+105
 A. Namibia
 B. South Africa
 C. Egypt
 D. Botswana
-B.
-306
+B. South Africa
+106
 A. 2005
 B. 2006
 C. 2007
 D. 2008
 C. 2007
-307
+107
 A. Shell Sort
 B. Bubble Sort
 C. Quicksort
 D. Mergesort
 C. Quicksort
-308
+108
 A. Utility Schema Baseband
 B. Unicode Script Bit
 C. Until Something Better
 D. Universal Serial Bus
 D. Universal Serial Bus
-309
+109
 A. mz
 B. gm
 C. mg
 D. ms
 C. mg
-310
+110
 A. Canada
 B. New Zealand
 C. Australia
 D. Denmark
 B. New Zealand
-311
+111
 A. Halloween
 B. Saint Patrick
 C. Easter
 D. Christmas
 A. Halloween
-312
+112
 A. 5 hours (London's 5 hours ahead of Sydney)
 B. 9 hours (Sydney's 9 hours ahead of London)
 C. 2 hours (London's 9 hours ahead of Sydney)
 D. 0 hours (Same time)
 B. 9 hours (Sydney's 9 hours ahead of London)
-313
+113
 A. Heart
 B. Liver
 C. Skin
 D. Large Intestine
 B. Liver
-314
+114
 A. Pituitary gland
 B. Pancreas
 C. Reproductive glands
 D. Parathyroids
 A. Pituitary gland
-315
+115
 A. 2000
 B. 2004
 C. 2006
 D. 2008
 B. 2004
-316
+116
 A. Zelda
 B. Link
 C. Ganondorf
 D. Navi
 B. Link
-317
-318
-319
-320
-321
+117
 A. Harry Potter and the Deathly Hallows
 B. Harry Potter and the Sorcerer's Stone
 C. Harry Potter and the Goblet of Fire
 D. Harry Potter and the Chamber of Secrets
 B. Harry Potter and the Sorcerer's Stone
-322
+118
 A. Portugal
 B. Genovia
 C. Andorra
 D. Malta
 C. Andorra
-323
+119
 A. Russia
 B. Czechoslovakia
 C. Serbia
 D. Austria-Hungary
 D. Austria-Hungary
-324
+120
 A. Pigs
 B. Opossums
 C. Pigeons
 D. Armadillos
 D. Armadillos
-325
+121
 A. Iraq
 B. Lebanon
 C. Israel

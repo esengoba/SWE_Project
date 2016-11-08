@@ -1,10 +1,38 @@
 package controller;
 
 import view.View;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import model.Score;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-/**
- * Created by elizabethsengoba on 10/19/16.
+
+/** The controller class works with the QuestionPanel class and the view
+ * class to update the question content for each question and resets
+ * the timer.
  */
+public class Controller implements ActionListener {
+    View controllerView;
+    Score controllerScore;
+
+    public String responseSelected = "";
+    public Controller(View view){
+        controllerView = view;
+    }
+
+    public Controller (Score score){
+        controllerScore = score;
+    }
+
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        responseSelected = e.getActionCommand();
+        /**THE ISSUES IS HERE WHEN YOU UNCOMMENT THESE LINES**/
+        // controllerScore.updateAnswerArray(responseSelected);
+        // controllerScore.updateScore();
+        controllerView.updateQuestionContent();
+
+    }
+}
 
