@@ -13,12 +13,12 @@ import java.util.*;
 public class Score {
      int userScore;
      View scoreView;
-     Controller scoreController;
      ArrayList<String> usersAnswers = new ArrayList<String>();
 
     public Score(View view){
         userScore = 0;
         scoreView = view;
+        //scoreController = new Controller(this);
     }
 
     /**The user's score is reset for each new round*/
@@ -38,16 +38,15 @@ public class Score {
      * user gets 0-10 points depending on how quickly the question is answered.
      * Otherwise, each question counts for 10 points.
      */
-    public void updateScore(){
+    public void updateScore(String response){
         if (isTimerEnabled()){
-
-                if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4) == scoreController.responseSelected){
+               if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4).equals(response)){
                     //update the score
                     userScore+= 10;
                 }
 
         }
-        System.out.println("now" + userScore);
+        System.out.println("User score is now " + userScore);
 
     }
     /** This method updates an array list of the answers the user selected*/

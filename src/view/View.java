@@ -41,8 +41,9 @@ public class View extends JFrame implements ActionListener {
         try {
             question = new Question();
         } catch (IOException ex) {}
-        controller = new Controller(this);
+        //controller = new Controller(this);
         score = new Score(this);
+        controller = new Controller(this, score);
         questionPanel = new QuestionPanel(controller);
 
         updateQuestionContent(); //CALL TO UPDATE QUESTION CONTENT
