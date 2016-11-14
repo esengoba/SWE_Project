@@ -2,13 +2,17 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
-
+/** This is the Ready Panel class which extends the abstract MyPanel.
+ * This screen prepares the user for the trivia game to come. Instructions
+ * should be printed to the screen for the user. There are two buttons on
+ * the screen which allow the user to return to the home screen or proceed
+ * to play the game.
+ */
 
 public class ReadyPanel extends MyPanel {
     public ReadyPanel(){
-        //Add buttons
+
         super();
 
         setOpaque(false);
