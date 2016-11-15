@@ -17,6 +17,9 @@ public class SettingsPanel extends MyPanel {
         setOpaque(false);
         setBounds(0,0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
         setLayout(new GridLayout(6,1));
+        JLabel triviaTitle = new JLabel("Settings", SwingConstants.CENTER);
+        triviaTitle.setFont(Constants.HOME_FONT);
+        add(triviaTitle);
         JLabel emptySpace = new JLabel("");
         add(emptySpace);
         add(createButton(Constants.SOUND));

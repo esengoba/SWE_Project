@@ -29,7 +29,7 @@ public class View extends JFrame implements ActionListener {
     private CategoryPanel categoryPanel = new CategoryPanel();
     private ReadyPanel readyPanel = new ReadyPanel();
     public Question question;
-   // public FinalScorePanel finalScorePanel = new FinalScorePanel();
+    public FinalScorePanel finalScorePanel = new FinalScorePanel();
     public QuestionPanel questionPanel;
     private SettingsPanel settingsPanel = new SettingsPanel();
     JLayeredPane layered = new JLayeredPane();
@@ -63,7 +63,8 @@ public class View extends JFrame implements ActionListener {
         addActionListener(homePanel.getButton());
         addActionListener(categoryPanel.getButton());
         addActionListener(readyPanel.getButton());
-     //   addActionListener(finalScorePanel.getButton());
+        addActionListener(finalScorePanel.getButton());
+        addActionListener(settingsPanel.getButton());
 
 
     }
@@ -105,7 +106,7 @@ public class View extends JFrame implements ActionListener {
 
     public void displayScore(){
         layered.removeAll();
-      //  layered.add(finalScorePanel);
+        layered.add(finalScorePanel);
         layered.add(backgroundPanel);
         layered.repaint();
     }

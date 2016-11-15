@@ -32,7 +32,7 @@ public class Controller implements ActionListener {
         } else {
 
             questionCount = 1;
-         //   controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
+            controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
             controllerView.displayScore();
         }
     }
