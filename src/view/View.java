@@ -32,6 +32,7 @@ public class View extends JFrame implements ActionListener {
     public QuestionPanel questionPanel;
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
+
     public Score score;
     int quesID;
     public String nextQuestion;
@@ -87,15 +88,16 @@ public class View extends JFrame implements ActionListener {
                 questionPanel.answerMap = question.getAnswers();
 
             } catch (IOException ex) {}
+
             nextQuestion = Integer.toString(question.selectQuestion());
-            questionPanel.questionLabel.setText(questionPanel.questionMap.get(nextQuestion));
+            questionPanel.questionTextArea.setText(questionPanel.questionMap.get(nextQuestion));
 
             questionPanel.ansButton1.setText(questionPanel.answerMap.get(nextQuestion).get(0));
             questionPanel.ansButton2.setText(questionPanel.answerMap.get(nextQuestion).get(1));
             questionPanel.ansButton3.setText(questionPanel.answerMap.get(nextQuestion).get(2));
             questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
 
-            System.out.println(questionPanel.answerMap);
+            //System.out.println(questionPanel.answerMap);
             // wait for answer to be selected
     }
 
@@ -169,6 +171,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(backgroundPanel);
                 questionPanel.countdown();
                 question.reset();
+                score.resetScore();
                 updateQuestionContent();
                 break;
             case Constants.BACK:                       /*Not fully functional*/

@@ -20,11 +20,12 @@ public class QuestionPanel extends MyPanel {
     JButton ansButton3 = createButton("C");
     JButton ansButton4 = createButton("D");
     JLabel questionNumLabel = new JLabel("Question ID");
-    JLabel questionLabel = new JLabel("Question");
+    JTextArea questionTextArea = new JTextArea(2, 20); //
     JProgressBar progbar = new JProgressBar (0, 10);
     JLabel counter = new JLabel("Counter from 10 to 0", SwingConstants.CENTER);
     Controller controller;
     public QuestionPanel(Controller controller){
+
         super();
         this.controller = controller;
         setOpaque(false);
@@ -33,9 +34,15 @@ public class QuestionPanel extends MyPanel {
         add(progbar);
         questionNumLabel.setFont(Constants.QUESTION_FONT);
         add(questionNumLabel, BorderLayout.EAST);
-
-        questionLabel.setFont(Constants.QUESTION_FONT);
-        add(questionLabel, BorderLayout.EAST);
+//
+        questionTextArea.setText("Question ID");
+        questionTextArea.setWrapStyleWord(true);
+        questionTextArea.setLineWrap(true);
+        questionTextArea.setEditable(true);
+        questionTextArea.setOpaque(false);
+        //
+        questionTextArea.setFont(Constants.QUESTION_FONT);
+        add(questionTextArea, BorderLayout.EAST);
 
         add(ansButton1, Constants.QUESTION_FONT);
 
