@@ -11,7 +11,7 @@ import java.util.*;
  /**The Score class determines the user's score based on whether the time
   * is enabled. This class exchanges data with the Setting class/ Settings panel*/
 public class Score {
-     int userScore;
+    public int userScore;
      View scoreView;
      ArrayList<String> usersAnswers = new ArrayList<String>();
 
@@ -30,7 +30,7 @@ public class Score {
      * configuration.
      */
     public boolean isTimerEnabled(){
-       return true;
+       return false;
     }
 
     /**This function updates the score based on whether the timer is enabled
@@ -39,7 +39,7 @@ public class Score {
      * Otherwise, each question counts for 10 points.
      */
     public void updateScore(String response){
-        if (isTimerEnabled()){
+        if (!isTimerEnabled()){
                if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4).equals(response)){
                     //update the score
                     userScore+= 10;

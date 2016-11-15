@@ -28,7 +28,7 @@ public class View extends JFrame implements ActionListener {
     private CategoryPanel categoryPanel = new CategoryPanel();
     private ReadyPanel readyPanel = new ReadyPanel();
     public Question question;
-    private JPanel lastPage = new JPanel();
+    public FinalScorePanel finalScorePanel = new FinalScorePanel();
     public QuestionPanel questionPanel;
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
@@ -60,6 +60,7 @@ public class View extends JFrame implements ActionListener {
         addActionListener(homePanel.getButton());
         addActionListener(categoryPanel.getButton());
         addActionListener(readyPanel.getButton());
+        addActionListener(finalScorePanel.getButton());
 
 
     }
@@ -98,6 +99,13 @@ public class View extends JFrame implements ActionListener {
             // wait for answer to be selected
     }
 
+    public void displayScore(){
+        layered.removeAll();
+        layered.add(finalScorePanel);
+        layered.add(backgroundPanel);
+        layered.repaint();
+    }
+
     /** This implements the action listener for the View class allowing for each
      * of the button to carry out a set of functions when pressed. The switch
      * statements allow for the illusion of moving from screen to screen( relayering
@@ -123,42 +131,36 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(1);
-                //updateQuestionContent();
                 break;
             case Constants.EARLY2000JAMS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(2);
-                //updateQuestionContent();
                 break;
             case Constants.FOODIE:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(3);
-                //updateQuestionContent();
                 break;
             case Constants.RATCHETFACTS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(4);
-                //updateQuestionContent();
                 break;
             case Constants.SWECLASSFUNNYFACTS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(5);
-                //updateQuestionContent();
                 break;
             case Constants.RANDOM:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(6);
-                //updateQuestionContent();
                 break;
             case Constants.READY:
                 setTitle("Name that Thing! -- Question");
@@ -166,6 +168,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(questionPanel);
                 layered.add(backgroundPanel);
                 questionPanel.countdown();
+                question.reset();
                 updateQuestionContent();
                 break;
             case Constants.BACK:                       /*Not fully functional*/

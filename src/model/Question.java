@@ -15,26 +15,29 @@ import java.util.Timer;
 
 /** The Question class is responsible for reading in questions and answers from
  * each respective category and saving them to a data structure. This class
- * also retrieves an individual question its answers.
+ * also retrieves an individual question its answers. Essentially, this file
+ * is considered with the back end question information/storage.
  */
 public class Question {
 
-        int num = 0, categoryID, randomID;
+        int num = 1, categoryID, randomID;
         String pathName = "";
         String pathNameAnswers = "";
 
         public Question() throws IOException {
-            setCategoryPathName(6); // by default
+            setCategoryPathName(6); // Default to the random
             this.getQuestion();
         }
 
     /** Gets the current question number during game play */
         public int getCurrentQuestionNumber() {
-            if (num < 11){
                 return num++;
-            }
-            return num = 0;
         }
+
+    /**Resets the question number for each round*/
+    public void reset(){
+        num = 1;
+    }
 
     /**
      * Create a map that maps every question to its corresponding value
@@ -142,7 +145,7 @@ public class Question {
                  break;//Ratchet
              case 5: randomID = (int )(Math.random() * (505 - 501) + 501);
                  break;//Class Facts
-             case 6: randomID = (int )(Math.random() * (605 - 601) + 601);
+             case 6: randomID = (int )(Math.random() * (708 - 601) + 601);
                  break; //Random
              default: break;
          }

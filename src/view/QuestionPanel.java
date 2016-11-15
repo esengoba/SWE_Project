@@ -22,6 +22,7 @@ public class QuestionPanel extends MyPanel {
     JLabel questionNumLabel = new JLabel("Question ID");
     JLabel questionLabel = new JLabel("Question");
     JProgressBar progbar = new JProgressBar (0, 10);
+    JLabel counter = new JLabel("Counter from 10 to 0", SwingConstants.CENTER);
     Controller controller;
     public QuestionPanel(Controller controller){
         super();
@@ -50,13 +51,15 @@ public class QuestionPanel extends MyPanel {
         answerButtonActions(ansButton4);
         //updateQuestionContent();
 
+        counter.setFont(Constants.QUESTION_FONT);
+        add(counter);
 
     }
 
     public void countdown(){
-        JLabel counter = new JLabel("Counter from 10 to 0", SwingConstants.CENTER);
+       /* JLabel counter = new JLabel("Counter from 10 to 0", SwingConstants.CENTER);
         counter.setFont(Constants.QUESTION_FONT);
-        add(counter);
+        add(counter);*/
 
         final java.util.Timer timer = new java.util.Timer();
         timer.scheduleAtFixedRate(new TimerTask() {

@@ -13,27 +13,28 @@ import java.awt.event.ActionListener;
 public class Controller implements ActionListener {
     View controllerView;
     Score controllerScore;
-
+    int questionCount = 1;
     public String responseSelected = "";
+
     public Controller(View view, Score score){
         controllerView = view;
         controllerScore = score;
     }
 
-    /*public Controller (Score score){
-        controllerScore = score;
-    }*/
-
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        responseSelected = e.getActionCommand();
-        /**THE ISSUES IS HERE WHEN YOU UNCOMMENT THESE LINES**/
-        controllerScore.updateAnswerArray(responseSelected);
-        controllerScore.updateScore(responseSelected);
-        controllerView.updateQuestionContent();
+        if (questionCount < 10) {
+            responseSelected = e.getActionCommand();
+            controllerScore.updateAnswerArray(responseSelected);
+            controllerScore.updateScore(responseSelected);
+            questionCount++;
+            controllerView.updateQuestionContent();
+        } else {
 
+            questionCount = 1;
+            controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
+            controllerView.displayScore();
+        }
     }
 }
 
