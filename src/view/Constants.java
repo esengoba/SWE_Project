@@ -38,4 +38,7 @@ public class Constants {
     public static final String SWECLASSFUNNYFACTS = "SWE CLASS FUNNY FACTS";
     public static final String RANDOM = "RANDOM";
 
+    //Settings categories
+    public static final String TIMER = "TIMER";
+    public static final String SOUND = "SOUND";
 }

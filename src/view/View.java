@@ -1,4 +1,5 @@
 package view;
+import com.sun.scenario.Settings;
 import model.Model;
 import controller.Controller;
 
@@ -28,8 +29,9 @@ public class View extends JFrame implements ActionListener {
     private CategoryPanel categoryPanel = new CategoryPanel();
     private ReadyPanel readyPanel = new ReadyPanel();
     public Question question;
-    public FinalScorePanel finalScorePanel = new FinalScorePanel();
+   // public FinalScorePanel finalScorePanel = new FinalScorePanel();
     public QuestionPanel questionPanel;
+    private SettingsPanel settingsPanel = new SettingsPanel();
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
 
@@ -61,7 +63,7 @@ public class View extends JFrame implements ActionListener {
         addActionListener(homePanel.getButton());
         addActionListener(categoryPanel.getButton());
         addActionListener(readyPanel.getButton());
-        addActionListener(finalScorePanel.getButton());
+     //   addActionListener(finalScorePanel.getButton());
 
 
     }
@@ -103,7 +105,7 @@ public class View extends JFrame implements ActionListener {
 
     public void displayScore(){
         layered.removeAll();
-        layered.add(finalScorePanel);
+      //  layered.add(finalScorePanel);
         layered.add(backgroundPanel);
         layered.repaint();
     }
@@ -125,6 +127,10 @@ public class View extends JFrame implements ActionListener {
                 layered.add(backgroundPanel);
                 break;
             case Constants.SETTINGS:
+                setTitle("Name that Thing! -- Settings Selection");
+                layered.removeAll();
+                layered.add(settingsPanel);
+                layered.add(backgroundPanel);
                 break;
             case Constants.LEADERBOARD:
                 break;
