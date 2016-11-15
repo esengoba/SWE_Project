@@ -20,9 +20,10 @@ import java.util.Timer;
  */
 public class Question {
 
-        int num = 1, categoryID, randomID;
-        String pathName = "";
-        String pathNameAnswers = "";
+     int num = 1, categoryID, randomID;
+     String pathName = "";
+     String pathNameAnswers = "";
+     HashSet<String> distinctQuestions = new HashSet<String>();
 
         public Question() throws IOException {
             setCategoryPathName(6); // Default to the random
@@ -31,13 +32,13 @@ public class Question {
 
     /** Gets the current question number during game play */
         public int getCurrentQuestionNumber() {
-                return num++;
+            return num++;
         }
 
     /**Resets the question number for each round*/
-    public void reset(){
-        num = 1;
-    }
+        public void reset(){
+            num = 1;
+         }
 
     /**
      * Create a map that maps every question to its corresponding value
@@ -135,20 +136,21 @@ public class Question {
          Random random = new Random();
 
          switch (categoryID){
-             case 1: randomID = (int )(Math.random() * (120 - 101) + 101);
+             case 1: randomID = (int )(Math.random() * (121 - 101) + 101);
                  break; //Geek Out
-             case 2: randomID = (int )(Math.random() * (220 - 201) + 201);
+             case 2: randomID = (int )(Math.random() * (221 - 201) + 201);
                  break; //Jams
-             case 3: randomID = (int )(Math.random() * (320 - 301) + 301);
+             case 3: randomID = (int )(Math.random() * (325 - 301) + 301);
                  break; //Foodie
-             case 4: randomID = (int )(Math.random() * (405 - 401) + 401);
+             case 4: randomID = (int )(Math.random() * (420 - 401) + 401);
                  break;//Ratchet
-             case 5: randomID = (int )(Math.random() * (505 - 501) + 501);
+             case 5: randomID = (int )(Math.random() * (521 - 501) + 501);
                  break;//Class Facts
              case 6: randomID = (int )(Math.random() * (708 - 601) + 601);
                  break; //Random
              default: break;
          }
+         System.out.println("Random num" + randomID);
          return randomID;
      }
 
