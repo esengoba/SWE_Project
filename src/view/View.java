@@ -1,4 +1,5 @@
 package view;
+import com.sun.scenario.Settings;
 import model.Model;
 import controller.Controller;
 
@@ -30,6 +31,7 @@ public class View extends JFrame implements ActionListener {
     public Question question;
     public FinalScorePanel finalScorePanel = new FinalScorePanel();
     public QuestionPanel questionPanel;
+    private SettingsPanel settingsPanel = new SettingsPanel();
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
 
@@ -62,6 +64,7 @@ public class View extends JFrame implements ActionListener {
         addActionListener(categoryPanel.getButton());
         addActionListener(readyPanel.getButton());
         addActionListener(finalScorePanel.getButton());
+        addActionListener(settingsPanel.getButton());
 
 
     }
@@ -125,6 +128,10 @@ public class View extends JFrame implements ActionListener {
                 layered.add(backgroundPanel);
                 break;
             case Constants.SETTINGS:
+                setTitle("Name that Thing! -- Settings Selection");
+                layered.removeAll();
+                layered.add(settingsPanel);
+                layered.add(backgroundPanel);
                 break;
             case Constants.LEADERBOARD:
                 break;

@@ -34,13 +34,13 @@ public class QuestionPanel extends MyPanel {
         add(progbar);
         questionNumLabel.setFont(Constants.QUESTION_FONT);
         add(questionNumLabel, BorderLayout.EAST);
-//
+
         questionTextArea.setText("Question ID");
         questionTextArea.setWrapStyleWord(true);
         questionTextArea.setLineWrap(true);
         questionTextArea.setEditable(true);
         questionTextArea.setOpaque(false);
-        //
+
         questionTextArea.setFont(Constants.QUESTION_FONT);
         add(questionTextArea, BorderLayout.EAST);
 
