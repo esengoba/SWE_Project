@@ -4,26 +4,34 @@ package view;
 import controller.Controller;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
-public class QuestionPanel extends MyPanel {
-
+public class
+QuestionPanel extends MyPanel {
+    Controller controller;
     public HashMap<String, String> questionMap = new HashMap<>();
     public HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
     ArrayList<String> playerAnswers = new ArrayList<String>();
 
+    /*Buttons/fields for the answers and questions*/
     JButton ansButton1 = createButton("A");
     JButton ansButton2 = createButton("B");
     JButton ansButton3 = createButton("C");
     JButton ansButton4 = createButton("D");
-    JLabel questionNumLabel = new JLabel("Question ID");
+    JLabel questionNumLabel = new JLabel("");
     JTextArea questionTextArea = new JTextArea(2, 20); //
     JProgressBar progbar = new JProgressBar (0, 10);
-    JLabel counter = new JLabel("Counter from 10 to 0", SwingConstants.CENTER);
-    Controller controller;
+
+    /*Variables for the timer*/
+    JLabel counter = new JLabel("10", SwingConstants.CENTER);
+    public final static int ONE_SECOND = 1000;
+    private Timer timer;
+    int i = Integer.parseInt(Constants.COUNTMAX);
+
     public QuestionPanel(Controller controller){
 
         super();
@@ -45,7 +53,6 @@ public class QuestionPanel extends MyPanel {
         add(questionTextArea, BorderLayout.EAST);
 
         add(ansButton1, Constants.QUESTION_FONT);
-
         answerButtonActions(ansButton1);
 
         add(ansButton2, Constants.QUESTION_FONT);
@@ -56,36 +63,52 @@ public class QuestionPanel extends MyPanel {
 
         add(ansButton4, Constants.QUESTION_FONT);
         answerButtonActions(ansButton4);
-        //updateQuestionContent();
 
         counter.setFont(Constants.QUESTION_FONT);
+        counter.setForeground(Color.GREEN);
         add(counter);
 
     }
 
+    /**Reset the timer to 10 */
+    public void resetTimer(){
+        i = 10;
+        timer.restart();
+        counter.setForeground(Color.GREEN);
+        counter.setText(Integer.toString(i));
+    }
+
+    //SMALL BUG: SEE HERE
+    /**Countdown implements a ten second timer for each question*/
     public void countdown(){
-       /* JLabel counter = new JLabel("Counter from 10 to 0", SwingConstants.CENTER);
-        counter.setFont(Constants.QUESTION_FONT);
-        add(counter);*/
 
-        final java.util.Timer timer = new java.util.Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            int i = Integer.parseInt(Constants.COUNTMAX);
-            public void run() {
-                int temp = i--;
-                counter.setText(String.valueOf(temp));
+        timer = new Timer(ONE_SECOND, new ActionListener() {
 
-                if (temp >= 7)
-                    counter.setForeground(Color.GREEN);
-                else if (temp > 3)
-                    counter.setForeground(Color.YELLOW);
-                else
-                    counter.setForeground(Color.RED);
+            public void actionPerformed(ActionEvent evt) {
 
-                if (i< 0)
-                    timer.cancel();
+                if(controller.questionCount > 10) {
+                    controller.isGamePlayOver(controller.questionCount);
+                    System.out.println("question 1");
+                    timer.stop();
+                }
+                else if (i == 0){
+                    resetTimer();
+                    controller.controllerView.updateQuestionContent();
+                    controller.questionCount++;
+                }
+                else {
+                    i--;
+                    if (i >= 7)
+                        counter.setForeground(Color.GREEN);
+                    else if (i > 3)
+                        counter.setForeground(Color.YELLOW);
+                    else
+                        counter.setForeground(Color.RED);
+                    counter.setText(Integer.toString(i));
+                }
             }
-        }, 0, 1000);
+        });
+        timer.start();
     }
 
     /*Double check the right action listeners are implemented*/
@@ -96,17 +119,9 @@ public class QuestionPanel extends MyPanel {
             public void actionPerformed(ActionEvent e) {
 
                 String text = e.getActionCommand(); // returns a string with the text on hte button
-                /*TO DO: Implement*/
-                /* Highlight answer and then go the next screen*/
-                /* Restart the timer*/
-                /*Update the pages*/
-                /*Store their selection in the user answer map*/
-
-                System.out.println("She pressed" + text);
-                playerAnswers.add(text);
-                System.out.println(text);
-                //change screen
-
+                //System.out.println("She pressed" + text);
+               // playerAnswers.add(text);
+                //System.out.println(text);
 
             }
         });

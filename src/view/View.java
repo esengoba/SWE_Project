@@ -105,6 +105,7 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void displayScore(){
+        setTitle("Name that Thing! -- Final Score");
         layered.removeAll();
         layered.add(finalScorePanel);
         layered.add(backgroundPanel);

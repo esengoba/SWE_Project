@@ -1,6 +1,6 @@
 package model;
 
-/**This fine has not been used*/
+/**This file has not been used*/
 
 public class Model {
     private Question newQuestion;
