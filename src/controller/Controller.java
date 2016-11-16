@@ -11,29 +11,35 @@ import java.awt.event.ActionListener;
  * the timer.
  */
 public class Controller implements ActionListener {
-    View controllerView;
+    public View controllerView;
     Score controllerScore;
-    int questionCount = 1;
+    public int questionCount = 1;
     public String responseSelected = "";
 
     public Controller(View view, Score score){
         controllerView = view;
         controllerScore = score;
     }
+    public void isGamePlayOver(int o){
+        questionCount = 1;
+        controllerView.questionPanel.timer.stop();
+        controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
+        controllerView.displayScore();
+    }
+    //SMALL BUG: SEE HERE
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (questionCount < 10) {
+        questionCount++;
+        if (questionCount <= 10) {
             responseSelected = e.getActionCommand();
             controllerScore.updateAnswerArray(responseSelected);
             controllerScore.updateScore(responseSelected);
-            questionCount++;
             controllerView.updateQuestionContent();
+            controllerView.questionPanel.resetTimer();
+            System.out.println("control");
         } else {
-
-            questionCount = 1;
-            controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
-            controllerView.displayScore();
+           isGamePlayOver(questionCount);
         }
     }
 }
