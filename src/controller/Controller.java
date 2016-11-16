@@ -22,6 +22,7 @@ public class Controller implements ActionListener {
     }
     public void isGamePlayOver(int o){
         questionCount = 1;
+        controllerView.questionPanel.timer.stop();
         controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
         controllerView.displayScore();
     }

@@ -29,7 +29,7 @@ QuestionPanel extends MyPanel {
     /*Variables for the timer*/
     JLabel counter = new JLabel("10", SwingConstants.CENTER);
     public final static int ONE_SECOND = 1000;
-    private Timer timer;
+    public Timer timer;
     int i = Integer.parseInt(Constants.COUNTMAX);
 
     public QuestionPanel(Controller controller){
