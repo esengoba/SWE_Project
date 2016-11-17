@@ -1,4 +1,6 @@
-package view;
+package view.panels;
+
+import view.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +20,7 @@ public abstract class MyPanel extends JPanel {
         return button;
     }
 
-    ArrayList<JButton> getButton(){
+    public ArrayList<JButton> getButton(){
         return buttonList;
     }
 

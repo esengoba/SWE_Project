@@ -1,5 +1,4 @@
 package view;
-import com.sun.scenario.Settings;
 import model.Model;
 import controller.Controller;
 
@@ -13,6 +12,8 @@ import java.util.*;
 
 import model.Question;
 import model.Score;
+import view.panels.*;
+
 import static view.Constants.WINDOW_HEIGHT;
 import static view.Constants.WINDOW_WIDTH;
 

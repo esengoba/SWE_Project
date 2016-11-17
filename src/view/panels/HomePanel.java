@@ -1,4 +1,6 @@
-package view;
+package view.panels;
+
+import view.Constants;
 
 import javax.swing.*;
 import java.awt.*;

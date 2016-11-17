@@ -1,8 +1,9 @@
-package view;
+package view.panels;
+
+import view.Constants;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 
 /**This class supports the interface for showing the final score
  * to the user. This class also extends MyPanel.

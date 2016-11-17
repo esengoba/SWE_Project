@@ -1,6 +1,6 @@
-package view;
+package view.panels;
 
-import com.sun.tools.internal.jxc.ap.Const;
+import view.Constants;
 
 import javax.swing.*;
 import java.awt.*;

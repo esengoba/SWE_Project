@@ -1,5 +1,7 @@
-package view;
+package view.panels;
 
+
+import view.Constants;
 
 import java.awt.*;
 
