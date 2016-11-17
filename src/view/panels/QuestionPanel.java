@@ -1,7 +1,8 @@
-package view;
+package view.panels;
 
 
 import controller.Controller;
+import view.Constants;
 
 import javax.swing.*;
 import javax.swing.Timer;
@@ -18,19 +19,19 @@ QuestionPanel extends MyPanel {
     ArrayList<String> playerAnswers = new ArrayList<String>();
 
     /*Buttons/fields for the answers and questions*/
-    JButton ansButton1 = createButton("A");
-    JButton ansButton2 = createButton("B");
-    JButton ansButton3 = createButton("C");
-    JButton ansButton4 = createButton("D");
-    JLabel questionNumLabel = new JLabel("");
-    JTextArea questionTextArea = new JTextArea(2, 20); //
-    JProgressBar progbar = new JProgressBar (0, 10);
+    public JButton ansButton1 = createButton("A");
+    public JButton ansButton2 = createButton("B");
+    public JButton ansButton3 = createButton("C");
+    public JButton ansButton4 = createButton("D");
+    public JLabel questionNumLabel = new JLabel("");
+    public JTextArea questionTextArea = new JTextArea(2, 20); //
+    public JProgressBar progbar = new JProgressBar (0, 10);
 
     /*Variables for the timer*/
-    JLabel counter = new JLabel("10", SwingConstants.CENTER);
+    public JLabel counter = new JLabel("10", SwingConstants.CENTER);
     public final static int ONE_SECOND = 1000;
     public Timer timer;
-    int i = Integer.parseInt(Constants.COUNTMAX);
+    public int i = Integer.parseInt(Constants.COUNTMAX);
 
     public QuestionPanel(Controller controller){
 
@@ -66,35 +67,21 @@ QuestionPanel extends MyPanel {
 
         counter.setFont(Constants.QUESTION_FONT);
         counter.setForeground(Color.GREEN);
-        add(counter);
-
-    }
-
-    /**Reset the timer to 10 */
-    public void resetTimer(){
-        i = 10;
-        timer.restart();
-        counter.setForeground(Color.GREEN);
-        counter.setText(Integer.toString(i));
-    }
-
-    //SMALL BUG: SEE HERE
-    /**Countdown implements a ten second timer for each question*/
-    public void countdown(){
 
         timer = new Timer(ONE_SECOND, new ActionListener() {
 
             public void actionPerformed(ActionEvent evt) {
 
-                if(controller.questionCount > 10) {
-                    controller.isGamePlayOver(controller.questionCount);
-                    System.out.println("question 1");
-                    timer.stop();
-                }
-                else if (i == 0){
-                    resetTimer();
-                    controller.controllerView.updateQuestionContent();
-                    controller.questionCount++;
+                if (i == 0){
+
+                    if(controller.questionCount == 10) {
+                        controller.isGamePlayOver(controller.questionCount);
+                        timer.stop();
+                    } else {
+                        resetTimer();
+                        controller.controllerView.updateQuestionContent();
+                        controller.questionCount++;
+                    }
                 }
                 else {
                     i--;
@@ -108,6 +95,20 @@ QuestionPanel extends MyPanel {
                 }
             }
         });
+        add(counter);
+
+    }
+
+    /**Reset the timer to 10 */
+    public void resetTimer(){
+        i = 10;
+        timer.restart();
+        counter.setForeground(Color.GREEN);
+        counter.setText(Integer.toString(i));
+    }
+
+    /**Countdown implements a ten second timer for each question*/
+    public void countdown(){
         timer.start();
     }
 
