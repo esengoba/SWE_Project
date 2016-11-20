@@ -103,6 +103,7 @@ public class View extends JFrame implements ActionListener {
 
             //System.out.println(questionPanel.answerMap);
             // wait for answer to be selected
+        // questionPanel.countdown();
     }
 
     public void displayScore(){
