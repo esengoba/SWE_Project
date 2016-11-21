@@ -4,6 +4,23 @@ import java.util.HashMap;
 
 public class Leaderboard {
 
+    int num = 1, categoryID;
+    String pathName = "";
+    String pathNameAnswers = "";
+
+    /**This method sets the path name to the correct text files depending on
+     * which category the player selected from the Category screen.
+     * @param path
+     */
+    public void setCategoryPathName(int path) {
+        String[] questions = {"geekout.txt", "jams.txt", "foodie.txt", "ratchet.txt", "classFacts.txt", "random.txt"};
+        String[] answers = {"geekoutAnswers.txt", "jamsAnswers.txt","foodieAnswers.txt","ratchetAnswers.txt","classFactsAnswers.txt", "randomAnswers.txt"};
+
+        pathName = "src/model/leaderboard/" + questions[path-1];
+        categoryID = path;
+    }
+
+
     /**
      * This function takes the ID and score of the player, and places it in
      * the respective file if the score is among the top ten highest scores.
@@ -36,4 +53,5 @@ public class Leaderboard {
     public HashMap<String, String> getData(String category){
         return new HashMap<>();
     }
+
 }

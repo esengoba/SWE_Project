@@ -46,7 +46,6 @@ public class Score {
                 }
 
         }
-        System.out.println("User score is now " + userScore);
 
     }
     /** This method updates an array list of the answers the user selected*/

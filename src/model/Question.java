@@ -20,7 +20,7 @@ import java.util.Timer;
  */
 public class Question {
 
-     int num = 1, categoryID, randomID;
+     int num = 1, categoryID;
      String pathName = "";
      String pathNameAnswers = "";
      HashSet<String> distinctQuestions = new HashSet<String>();
