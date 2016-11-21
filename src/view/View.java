@@ -33,6 +33,7 @@ public class View extends JFrame implements ActionListener {
     public FinalScorePanel finalScorePanel = new FinalScorePanel();
     public QuestionPanel questionPanel;
     private SettingsPanel settingsPanel = new SettingsPanel();
+    public LeaderboardPanel leaderboardPanel = new LeaderboardPanel();
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
 
@@ -66,7 +67,7 @@ public class View extends JFrame implements ActionListener {
         addActionListener(readyPanel.getButton());
         addActionListener(finalScorePanel.getButton());
         addActionListener(settingsPanel.getButton());
-
+        addActionListener(leaderboardPanel.getButton());
 
     }
     /* Add this as ActionListener for all buttons */
@@ -102,8 +103,6 @@ public class View extends JFrame implements ActionListener {
             questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
 
             //System.out.println(questionPanel.answerMap);
-            // wait for answer to be selected
-        // questionPanel.countdown();
     }
 
     public void displayScore(){
@@ -137,6 +136,9 @@ public class View extends JFrame implements ActionListener {
                 layered.add(backgroundPanel);
                 break;
             case Constants.LEADERBOARD:
+                layered.removeAll();
+                layered.add(leaderboardPanel);
+                layered.add(backgroundPanel);
                 break;
             case Constants.GEEKOUT:
                 layered.removeAll();

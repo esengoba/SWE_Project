@@ -79,6 +79,7 @@ QuestionPanel extends MyPanel {
                         timer.stop();
                     } else {
                         resetTimer();
+                        controller.controllerView.score.updateScore("");
                         controller.controllerView.updateQuestionContent();
                         controller.questionCount++;
                     }
