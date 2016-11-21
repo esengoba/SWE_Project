@@ -40,6 +40,7 @@ public class View extends JFrame implements ActionListener {
     public Score score;
     int quesID;
     public String nextQuestion;
+    public ArrayList<String> randomQuestions = new ArrayList<>();
 
 
     public View() {
@@ -51,7 +52,6 @@ public class View extends JFrame implements ActionListener {
         controller = new Controller(this, score);
         questionPanel = new QuestionPanel(controller);
 
-        updateQuestionContent(); //CALL TO UPDATE QUESTION CONTENT
         model = new Model();
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setTitle("Name that Thing! -- Home");
@@ -84,25 +84,28 @@ public class View extends JFrame implements ActionListener {
      */
     public void updateQuestionContent(){
         //get question
-            quesID = question.getCurrentQuestionNumber();
-            questionPanel.progbar.setValue(quesID);
-            questionPanel.questionNumLabel.setText(Integer.toString(quesID));
-            //update the question label on the screen
-            try {
-                questionPanel.questionMap = question.getQuestion();
-                questionPanel.answerMap = question.getAnswers();
+        quesID = question.getCurrentQuestionNumber();
+        questionPanel.progbar.setValue(quesID);
+        questionPanel.questionNumLabel.setText(Integer.toString(quesID));
 
-            } catch (IOException ex) {}
+        //update the question label on the screen
+        try {
+            questionPanel.questionMap = question.getQuestion();
+            questionPanel.answerMap = question.getAnswers();
 
-            nextQuestion = Integer.toString(question.selectQuestion());
-            questionPanel.questionTextArea.setText(questionPanel.questionMap.get(nextQuestion));
+        } catch (IOException ex) {}
 
-            questionPanel.ansButton1.setText(questionPanel.answerMap.get(nextQuestion).get(0));
-            questionPanel.ansButton2.setText(questionPanel.answerMap.get(nextQuestion).get(1));
-            questionPanel.ansButton3.setText(questionPanel.answerMap.get(nextQuestion).get(2));
-            questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
+        nextQuestion = randomQuestions.get(0);
+        randomQuestions.remove(0);
 
-            //System.out.println(questionPanel.answerMap);
+        questionPanel.questionTextArea.setText(questionPanel.questionMap.get(nextQuestion));
+
+        questionPanel.ansButton1.setText(questionPanel.answerMap.get(nextQuestion).get(0));
+        questionPanel.ansButton2.setText(questionPanel.answerMap.get(nextQuestion).get(1));
+        questionPanel.ansButton3.setText(questionPanel.answerMap.get(nextQuestion).get(2));
+        questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
+
+        //System.out.println(questionPanel.answerMap);
     }
 
     public void displayScore(){
@@ -184,6 +187,7 @@ public class View extends JFrame implements ActionListener {
                 questionPanel.countdown();
                 question.reset();
                 score.resetScore();
+                randomQuestions.addAll(question.setGameQuestions());
                 updateQuestionContent();
                 break;
             case Constants.BACK:                       /*Not fully functional*/
@@ -191,6 +195,8 @@ public class View extends JFrame implements ActionListener {
                 layered.removeAll();
                 layered.add(homePanel);
                 layered.add(backgroundPanel);
+                // Need to update the reinitialization of random questions after the first game
+                randomQuestions = new ArrayList<>();
             default:
                 break;
         }

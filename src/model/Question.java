@@ -44,7 +44,6 @@ public class Question {
      * Create a map that maps every question to its corresponding value
      */
         public HashMap<String, String> getQuestion() throws IOException {
-
             ArrayList<String> questions = new ArrayList<>();
             ArrayList<String> questionID = new ArrayList<>();
             HashMap<String, String> retMap = new HashMap<>();
@@ -122,7 +121,6 @@ public class Question {
      * @param path
      */
      public void setCategoryPathName(int path) {
-
          String[] questions = {"geekout.txt", "jams.txt", "foodie.txt", "ratchet.txt", "classFacts.txt", "random.txt"};
          String[] answers = {"geekoutAnswers.txt", "jamsAnswers.txt","foodieAnswers.txt","ratchetAnswers.txt","classFactsAnswers.txt", "randomAnswers.txt"};
 
@@ -131,27 +129,35 @@ public class Question {
          categoryID = path;
      }
 
-    /**This method randomly generates a question ID number.*/
-     public int selectQuestion(){
-         Random random = new Random();
+    /**
+     * This method randomly generates a question ID number.
+     * */
 
-         switch (categoryID){
-             case 1: randomID = (int )(Math.random() * (121 - 101) + 101);
-                 break; //Geek Out
-             case 2: randomID = (int )(Math.random() * (221 - 201) + 201);
-                 break; //Jams
-             case 3: randomID = (int )(Math.random() * (325 - 301) + 301);
-                 break; //Foodie
-             case 4: randomID = (int )(Math.random() * (420 - 401) + 401);
-                 break;//Ratchet
-             case 5: randomID = (int )(Math.random() * (521 - 501) + 501);
-                 break;//Class Facts
-             case 6: randomID = (int )(Math.random() * (708 - 601) + 601);
-                 break; //Random
-             default: break;
+     public String selectRandomQuestion(ArrayList<String> a){
+         Random r = new Random();
+         return a.get(r.nextInt(a.size()));
+     }
+
+     public HashSet<String> setGameQuestions(){
+         HashMap<String, String> questionMap = new HashMap<>();
+         HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
+         HashSet<String> tenQuestionsID = new HashSet<>();
+
+         try {
+             questionMap = getQuestion();
+             answerMap = getAnswers();
+         } catch (IOException e) {
+             e.printStackTrace();
          }
-         System.out.println("Random num" + randomID);
-         return randomID;
+
+         ArrayList<String> IDs = new ArrayList<>(questionMap.keySet());
+
+         while (tenQuestionsID.size() <= 10){
+             String randID = selectRandomQuestion(IDs);
+             tenQuestionsID.add(randID);
+         }
+
+         return tenQuestionsID;
      }
 
 }
