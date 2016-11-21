@@ -23,6 +23,7 @@ public class Controller implements ActionListener {
     public void isGamePlayOver(int o){
         questionCount = 1;
         controllerView.questionPanel.timer.stop();
+        controllerScore.updateScore(responseSelected);
         controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
         controllerView.displayScore();
     }
@@ -32,6 +33,7 @@ public class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         questionCount++;
         if (questionCount <= 10) {
+            System.out.println(questionCount);
             responseSelected = e.getActionCommand();
             controllerScore.updateAnswerArray(responseSelected);
             controllerScore.updateScore(responseSelected);
@@ -39,6 +41,8 @@ public class Controller implements ActionListener {
             controllerView.questionPanel.resetTimer();
             System.out.println("control");
         } else {
+            responseSelected = e.getActionCommand();
+            controllerScore.updateScore(responseSelected);
            isGamePlayOver(questionCount);
         }
     }
