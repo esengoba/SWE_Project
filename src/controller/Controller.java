@@ -27,7 +27,6 @@ public class Controller implements ActionListener {
         controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
         controllerView.displayScore();
     }
-    //SMALL BUG: SEE HERE
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -39,7 +38,6 @@ public class Controller implements ActionListener {
             controllerScore.updateScore(responseSelected);
             controllerView.updateQuestionContent();
             controllerView.questionPanel.resetTimer();
-            System.out.println("control");
         } else {
             responseSelected = e.getActionCommand();
             controllerScore.updateScore(responseSelected);

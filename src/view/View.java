@@ -189,6 +189,7 @@ public class View extends JFrame implements ActionListener {
                 score.resetScore();
                 randomQuestions.addAll(question.setGameQuestions());
                 updateQuestionContent();
+                questionPanel.resetTimer();
                 break;
             case Constants.BACK:                       /*Not fully functional*/
                 setTitle("Name that Thing! -- Home");  /*Implement to return to the last visited panel*/
