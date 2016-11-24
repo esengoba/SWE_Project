@@ -33,6 +33,8 @@ public class View extends JFrame implements ActionListener {
     public FinalScorePanel finalScorePanel = new FinalScorePanel();
     public QuestionPanel questionPanel;
     private SettingsPanel settingsPanel = new SettingsPanel();
+    private TimerPanel timerPanel = new TimerPanel();
+    private SoundPanel soundPanel = new SoundPanel();
     public LeaderboardPanel leaderboardPanel = new LeaderboardPanel();
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
@@ -136,6 +138,18 @@ public class View extends JFrame implements ActionListener {
                 setTitle("Name that Thing! -- Settings Selection");
                 layered.removeAll();
                 layered.add(settingsPanel);
+                layered.add(backgroundPanel);
+                break;
+            case Constants.TIMER:
+                setTitle("Timer Settings");
+                layered.removeAll();
+                layered.add(timerPanel);
+                layered.add(backgroundPanel);
+                break;
+            case Constants.SOUND:
+                setTitle("Sound Settings");
+                layered.removeAll();
+                layered.add(soundPanel);
                 layered.add(backgroundPanel);
                 break;
             case Constants.LEADERBOARD:
