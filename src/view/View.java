@@ -140,7 +140,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(settingsPanel);
                 layered.add(backgroundPanel);
                 break;
-            case Constants.TIMER:
+            /*case Constants.TIMER:
                 setTitle("Timer Settings");
                 layered.removeAll();
                 layered.add(timerPanel);
@@ -151,7 +151,7 @@ public class View extends JFrame implements ActionListener {
                 layered.removeAll();
                 layered.add(soundPanel);
                 layered.add(backgroundPanel);
-                break;
+                break;*/
             case Constants.LEADERBOARD:
                 layered.removeAll();
                 layered.add(leaderboardPanel);
