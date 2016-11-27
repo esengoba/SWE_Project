@@ -14,6 +14,7 @@ public class FinalScorePanel extends MyPanel {
     public JLabel scoreLabel = new JLabel("Your Score");
     public String userName;
     public JTextField nameField;
+    public boolean canAdd;
 
     public JTextArea gamePlayResult = new JTextArea(1, 10);
     JScrollPane jScrollPane1 = new JScrollPane(gamePlayResult);
@@ -29,28 +30,26 @@ public class FinalScorePanel extends MyPanel {
         scoreLabel.setFont(Constants.SCREEN_FONT);
         add(scoreTitle, BorderLayout.EAST);
         add(scoreLabel, BorderLayout.EAST);
-
-        //if (score counts and makes leaderboard){ *** need to add these conditions
         gamePlayResult.setWrapStyleWord(true);
         gamePlayResult = setJTextArea(gamePlayResult, "");
         gamePlayResult.setAutoscrolls(true);
         gamePlayResult.append("1" + Constants.NEWLINE);
-
         add(jScrollPane1);
 
-        JLabel nameLabel = new JLabel("Please enter your name:");
+        if (canAdd){
+
+        JLabel nameLabel = new JLabel("You made the Leaderboard! Please enter your name:");
         nameField = new JTextField(20);
         nameLabel.setFont(Constants.QUESTION_FONT);
         add(nameLabel, BorderLayout.CENTER);
         add(nameField);
         add(createButton(Constants.ENTER));
+        }
 
-        //}
-
-        //else{
+        else{
         // use a different layout to display the result of the questions
         add (createButton(Constants.LEADERBOARD));
-        //}
+        }
 
         add(createButton(Constants.HOME)); /*Returns to the home button*/
 
@@ -58,8 +57,9 @@ public class FinalScorePanel extends MyPanel {
 
 
     /**This method sets the final score for the panel.*/
-    public void setScoreLabel(int s){
-       scoreLabel.setText("Your score: " + Integer.toString(s));
+    public void setScoreLabel(int s, boolean a){ //set display
+
+       scoreLabel.setText("Your score: " + Integer.toString(s)); canAdd = a;
     }
 
     /**This method grabs the user name.*/
@@ -82,10 +82,14 @@ public class FinalScorePanel extends MyPanel {
         nameField.setText("");
         return true;
     }
+
+
     public void clearTextArea(){
 
         gamePlayResult.setText("Your results" + Constants.NEWLINE);
     }
+
+
     public void setResultsTextArea(ArrayList<String> questions, ArrayList<String> answers, ArrayList<Integer> points){
         clearTextArea();
         System.out.println("txt: " + points);
@@ -96,5 +100,6 @@ public class FinalScorePanel extends MyPanel {
         }
         System.out.println("txt: " + gamePlayResult.getText());
     }
+
 
 }
