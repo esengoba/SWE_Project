@@ -147,7 +147,7 @@ public class View extends JFrame implements ActionListener {
                 layered.removeAll();
                 layered.add(leaderboardPanel);
                 layered.add(backgroundPanel);
-                // HashMap<Leaderboard.User, String> dataTest = leaderboard.getData("blah-blah");
+                // Just for testing purposes
                 leaderboard.addScore("", "", 60);
                 leaderboard.isTopTen(90);
                 break;

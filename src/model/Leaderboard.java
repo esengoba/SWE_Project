@@ -1,6 +1,5 @@
 package model;
 
-import javax.jws.soap.SOAPBinding;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,12 +22,11 @@ public class Leaderboard {
      * which category the player selected from the Category screen.
      * @param path
      */
-    public void setCategoryPathName(int path) {
+    public void setCategoryPathName(int path) { // not used, YET
         String[] questions = {"geekout.txt", "jams.txt", "foodie.txt", "ratchet.txt", "classFacts.txt", "random.txt"};
         String[] answers = {"geekoutAnswers.txt", "jamsAnswers.txt","foodieAnswers.txt","ratchetAnswers.txt","classFactsAnswers.txt", "randomAnswers.txt"};
 
         pathName = "src/model/leaderboard/" + questions[path-1];
-        // pathName = "src/model/leaderboard/overall.txt"; // TEMPORARY
         categoryID = path;
     }
 
@@ -84,26 +82,23 @@ public class Leaderboard {
      *                 for a certain category.
      * @return a map containing the user ID and his/her specific score.
      */
-    // The argument is useless SO FAR since pathName is doing the job
+    // The argument is useless SO FAR, but could be an alternative to pathName
     public ArrayList<User> getData(String category){
         // map to be returned
         ArrayList<User> ret = new ArrayList<>();
         String[] lineData;
 
         try {
-            for (String line : Files.readAllLines(Paths.get("src/model/leaderboard/overall.txt"))) {
+            for (String line : Files.readAllLines(Paths.get("src/model/leaderboard/overall.txt"))) { // used one file for testing purposes
                 lineData = line.split("\\|");
-                // System.out.println(lineData[1]);
 
-                // Add data to the map
+                // Add data to the arraylist
                 User xUser = new User(lineData[1], lineData[0], Integer.valueOf(lineData[2])); // Order in files: ID|name|score
                 ret.add(xUser);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // System.out.println(ret);
 
         return ret;
     }
