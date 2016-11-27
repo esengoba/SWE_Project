@@ -60,38 +60,38 @@ QuestionPanel extends MyPanel {
         add(ansButton4, Constants.QUESTION_FONT);
         answerButtonActions(ansButton4);
 
-        counter.setFont(Constants.QUESTION_FONT);
-        counter.setForeground(Color.GREEN);
 
-        timer = new Timer(ONE_SECOND, new ActionListener() {
+            counter.setFont(Constants.QUESTION_FONT);
+            counter.setForeground(Color.GREEN);
 
-            public void actionPerformed(ActionEvent evt) {
+            timer = new Timer(ONE_SECOND, new ActionListener() {
 
-                if (i == 0){
+                public void actionPerformed(ActionEvent evt) {
 
-                    if(controller.questionCount == 10) {
-                        controller.isGamePlayOver(controller.questionCount);
-                        timer.stop();
+                    if (i == 0) {
+
+                        if (controller.questionCount == 10) {
+                            controller.isGamePlayOver(controller.questionCount);
+                            timer.stop();
+                        } else {
+                            resetTimer();
+                            controller.controllerView.score.updateScore("");
+                            controller.controllerView.updateQuestionContent();
+                            controller.questionCount++;
+                        }
                     } else {
-                        resetTimer();
-                        controller.controllerView.score.updateScore("");
-                        controller.controllerView.updateQuestionContent();
-                        controller.questionCount++;
+                        i--;
+                        if (i >= 7)
+                            counter.setForeground(Color.GREEN);
+                        else if (i > 3)
+                            counter.setForeground(Color.YELLOW);
+                        else
+                            counter.setForeground(Color.RED);
+                        counter.setText(Integer.toString(i));
                     }
                 }
-                else {
-                    i--;
-                    if (i >= 7)
-                        counter.setForeground(Color.GREEN);
-                    else if (i > 3)
-                        counter.setForeground(Color.YELLOW);
-                    else
-                        counter.setForeground(Color.RED);
-                    counter.setText(Integer.toString(i));
-                }
-            }
-        });
-        add(counter);
+            });
+            add(counter);
 
     }
 
