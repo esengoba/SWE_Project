@@ -206,12 +206,21 @@ public class View extends JFrame implements ActionListener {
                 layered.removeAll();
                 layered.add(questionPanel);
                 layered.add(backgroundPanel);
-                questionPanel.countdown();
-                question.reset();
-                score.resetScore();
-                randomQuestions.addAll(question.setGameQuestions());
-                updateQuestionContent();
-                questionPanel.resetTimer();
+                if (score.isTimerEnabled()){
+                    questionPanel.counter.setVisible(true);
+                    questionPanel.countdown();
+                    question.reset();
+                    score.resetScore();
+                    randomQuestions.addAll(question.setGameQuestions());
+                    updateQuestionContent();
+                    questionPanel.resetTimer();
+                } else{
+                    questionPanel.counter.setVisible(false);
+                    question.reset();
+                    score.resetScore();
+                    randomQuestions.addAll(question.setGameQuestions());
+                    updateQuestionContent();
+                }
                 break;
             case Constants.BACK:
                 setTitle("Name that Thing! -- Category Selection");

@@ -1,5 +1,7 @@
 package view.panels;
 
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 import view.Constants;
 
 import javax.swing.*;
@@ -8,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionListener;
+import sun.*;
+import java.io.*;
 
 
 public class SettingsPanel extends MyPanel implements ActionListener {
@@ -17,13 +21,16 @@ public class SettingsPanel extends MyPanel implements ActionListener {
      * having the timer on/off
      */
 
-    public JRadioButton timerStatusOn;
-    public JRadioButton timerStatusOff;
+    private JRadioButton timerStatusOn;
+    private JRadioButton timerStatusOff;
     private ButtonGroup timerButtonGroup;
     private JRadioButton soundStatusOn;
     private JRadioButton soundStatusOff;
     private ButtonGroup soundButtonGroup;
     public boolean timerEnabled = true;
+    private AudioStream audioFile;
+    private String audioFilePath = "/Users/ropadenga/IdeaProjects/SWE Project/SWE_Project_Master/src/view/ElectronicPop.wav";
+    private InputStream soundInput;
 
     public SettingsPanel() {
 
@@ -52,9 +59,9 @@ public class SettingsPanel extends MyPanel implements ActionListener {
         timerStatusOn.setHorizontalAlignment(AbstractButton.CENTER);
         timerStatusOff.setHorizontalAlignment(AbstractButton.CENTER);
 
-        soundStatusOn = new JRadioButton("ON", true);
+        soundStatusOn = new JRadioButton("ON", false);
         soundStatusOn.setFont(Constants.QUESTION_FONT);
-        soundStatusOff = new JRadioButton("OFF", false);
+        soundStatusOff = new JRadioButton("OFF", true);
         soundStatusOff.setFont(Constants.QUESTION_FONT);
         soundStatusOn.setHorizontalAlignment(AbstractButton.CENTER);
         soundStatusOff.setHorizontalAlignment(AbstractButton.CENTER);
@@ -91,7 +98,27 @@ public class SettingsPanel extends MyPanel implements ActionListener {
 
         add(createButton(Constants.HOME));
 
+        soundStatusOn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               try{
+                   soundInput = new FileInputStream(new File(audioFilePath));
+                   audioFile = new AudioStream(soundInput);
+                   AudioPlayer.player.start(audioFile);
+
+               }catch(Exception ae){ae.printStackTrace();}
+
+            }
+        });
+
+        soundStatusOff.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AudioPlayer.player.stop(audioFile);
+            }
+        });
+
+
     }
+
 
     public void actionPerformed(ActionEvent e) {
 

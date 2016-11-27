@@ -41,8 +41,8 @@ public class Controller implements ActionListener {
             controllerScore.updateAnswerArray(responseSelected);
             controllerScore.updateScore(responseSelected);
             controllerView.updateQuestionContent();
-            controllerView.questionPanel.resetTimer();
-            ;
+            if (controllerScore.isTimerEnabled()){
+            controllerView.questionPanel.resetTimer();}
         } else {
             responseSelected = e.getActionCommand();
             controllerScore.updateScore(responseSelected);
