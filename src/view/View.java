@@ -25,6 +25,7 @@ import static view.Constants.WINDOW_WIDTH;
 public class View extends JFrame implements ActionListener {
     private Model model;
 
+
     private HomePanel homePanel = new HomePanel();
     private BackgroundPanel backgroundPanel = new BackgroundPanel();
     private CategoryPanel categoryPanel = new CategoryPanel();
@@ -128,7 +129,7 @@ public class View extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-            case Constants.START: // do nothing
+            case Constants.START:
                 setTitle("Name that Thing! -- Category Selection");
                 layered.removeAll();
                 layered.add(categoryPanel);
@@ -193,6 +194,13 @@ public class View extends JFrame implements ActionListener {
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(6);
                 break;
+            case Constants.ENTER:
+                if (finalScorePanel.setUserName()){
+                layered.removeAll();
+                layered.add(leaderboardPanel);
+                layered.add(backgroundPanel);
+                break;}
+                else {break;}
             case Constants.READY:
                 setTitle("Name that Thing! -- Question");
                 layered.removeAll();

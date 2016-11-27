@@ -11,6 +11,7 @@ import java.util.*;
  /**The Score class determines the user's score based on whether the time
   * is enabled. This class exchanges data with the Setting class/ Settings panel*/
 public class Score {
+
     public int userScore;
      View scoreView;
      ArrayList<String> usersAnswers = new ArrayList<String>();
@@ -52,5 +53,6 @@ public class Score {
     public void updateAnswerArray(String ans){
         usersAnswers.add(ans);
     }
+
 
 }

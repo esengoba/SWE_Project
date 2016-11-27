@@ -41,4 +41,8 @@ public class Constants {
     //Settings categories
     public static final String TIMER = "TIMER";
     public static final String SOUND = "SOUND";
+
+    //Name Panel field
+    public static final String ENTER = "ENTER";
+
 }
