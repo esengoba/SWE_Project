@@ -32,9 +32,7 @@ public class View extends JFrame implements ActionListener {
     public Question question;
     public FinalScorePanel finalScorePanel = new FinalScorePanel();
     public QuestionPanel questionPanel;
-    private SettingsPanel settingsPanel = new SettingsPanel();
-    private TimerPanel timerPanel = new TimerPanel();
-    private SoundPanel soundPanel = new SoundPanel();
+    public SettingsPanel settingsPanel = new SettingsPanel();
     public LeaderboardPanel leaderboardPanel = new LeaderboardPanel();
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
@@ -140,19 +138,8 @@ public class View extends JFrame implements ActionListener {
                 layered.add(settingsPanel);
                 layered.add(backgroundPanel);
                 break;
-            case Constants.TIMER:
-                setTitle("Timer Settings");
-                layered.removeAll();
-                layered.add(timerPanel);
-                layered.add(backgroundPanel);
-                break;
-            case Constants.SOUND:
-                setTitle("Sound Settings");
-                layered.removeAll();
-                layered.add(soundPanel);
-                layered.add(backgroundPanel);
-                break;
             case Constants.LEADERBOARD:
+                setTitle("Name that Thing! -- Leaderboard Standings");
                 layered.removeAll();
                 layered.add(leaderboardPanel);
                 layered.add(backgroundPanel);
@@ -162,37 +149,50 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(1);
+                readyPanel.categoryLabel.setText("GEEK OUT");
                 break;
             case Constants.EARLY2000JAMS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(2);
+                readyPanel.categoryLabel.setText("EARLY 2000s JAMS");
                 break;
             case Constants.FOODIE:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(3);
+                readyPanel.categoryLabel.setText("FOODIE");
                 break;
             case Constants.RATCHETFACTS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(4);
+                readyPanel.categoryLabel.setText("POP CULTURE");
                 break;
             case Constants.SWECLASSFUNNYFACTS:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(5);
+                readyPanel.categoryLabel.setText("CLASS FACTS");
                 break;
             case Constants.RANDOM:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(6);
+                readyPanel.categoryLabel.setText("RANDOM: A BIT OF EVERYTHING");
                 break;
+            case Constants.ENTER:
+                if (finalScorePanel.setUserName()){
+                    layered.removeAll();
+                    layered.add(leaderboardPanel);
+                    layered.add(backgroundPanel);
+                    break;}
+                else {break;}
             case Constants.READY:
                 setTitle("Name that Thing! -- Question");
                 layered.removeAll();
@@ -205,8 +205,14 @@ public class View extends JFrame implements ActionListener {
                 updateQuestionContent();
                 questionPanel.resetTimer();
                 break;
-            case Constants.BACK:                       /*Not fully functional*/
-                setTitle("Name that Thing! -- Home");  /*Implement to return to the last visited panel*/
+            case Constants.BACK:
+                setTitle("Name that Thing! -- Category Selection");
+                layered.removeAll();
+                layered.add(categoryPanel);
+                layered.add(backgroundPanel);
+                break;
+            case Constants.HOME:
+                setTitle("Name that Thing! -- Home");
                 layered.removeAll();
                 layered.add(homePanel);
                 layered.add(backgroundPanel);
