@@ -1,4 +1,5 @@
 package view;
+import model.Leaderboard;
 import model.Model;
 import controller.Controller;
 
@@ -38,6 +39,7 @@ public class View extends JFrame implements ActionListener {
     public LeaderboardPanel leaderboardPanel = new LeaderboardPanel();
     JLayeredPane layered = new JLayeredPane();
     public Controller controller;
+    public Leaderboard leaderboard;
 
     public Score score;
     int quesID;
@@ -46,6 +48,8 @@ public class View extends JFrame implements ActionListener {
 
 
     public View() {
+        leaderboard = new Leaderboard();
+
         try {
             question = new Question();
         } catch (IOException ex) {}
@@ -156,6 +160,9 @@ public class View extends JFrame implements ActionListener {
                 layered.removeAll();
                 layered.add(leaderboardPanel);
                 layered.add(backgroundPanel);
+                // HashMap<Leaderboard.User, String> dataTest = leaderboard.getData("blah-blah");
+                leaderboard.addScore("", "", 60);
+                leaderboard.isTopTen(90);
                 break;
             case Constants.GEEKOUT:
                 layered.removeAll();
