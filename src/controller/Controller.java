@@ -25,7 +25,8 @@ public class Controller implements ActionListener {
         controllerView.questionPanel.timer.stop();
         //controllerScore.updateScore(responseSelected);
         System.out.println("game play done score update 2");
-        controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
+        controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore, (controllerView.leaderboard.isTopTen(controllerScore.userScore)));
+
         controllerView.finalScorePanel.setResultsTextArea(controllerScore.usersQuestions, controllerScore.usersAnswers,
                 controllerScore.pointsPerQuestion);
         controllerView.displayScore();
@@ -41,8 +42,8 @@ public class Controller implements ActionListener {
             controllerScore.updateAnswerArray(responseSelected);
             controllerScore.updateScore(responseSelected);
             controllerView.updateQuestionContent();
-            controllerView.questionPanel.resetTimer();
-            ;
+            if (controllerScore.isTimerEnabled()){
+            controllerView.questionPanel.resetTimer();}
         } else {
             responseSelected = e.getActionCommand();
             controllerScore.updateScore(responseSelected);
