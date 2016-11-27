@@ -5,9 +5,13 @@ import view.Constants;
 import javax.swing.*;
 import java.awt.*;
 
+/**This class sets the interface for the user to
+ * pick a category. The user can select from one of six
+ * categories for game play.
+ */
 
 public class CategoryPanel extends MyPanel {
-    private boolean isStartScreen;
+
     public CategoryPanel(){
         //Add buttons
         super();
@@ -24,7 +28,7 @@ public class CategoryPanel extends MyPanel {
         add(createButton(Constants.RATCHETFACTS));
         add(createButton(Constants.FOODIE));
         add(createButton(Constants.RANDOM));
-        add(createButton("BACK"));
+        add(createButton(Constants.HOME));
 
     }
 
