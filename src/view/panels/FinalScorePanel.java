@@ -4,6 +4,7 @@ import view.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**This class supports the interface for showing the final score
  * to the user. This class also extends MyPanel.
@@ -13,8 +14,10 @@ public class FinalScorePanel extends MyPanel {
     public JLabel scoreLabel = new JLabel("Your Score");
     public String userName;
     public JTextField nameField;
-    public JTextArea questionResult = new JTextArea(1, 10);
-    JScrollPane jScrollPane1 = new JScrollPane(questionResult);
+
+    public JTextArea gamePlayResult = new JTextArea(1, 10);
+    JScrollPane jScrollPane1 = new JScrollPane(gamePlayResult);
+
 
     public FinalScorePanel(){
         super();
@@ -28,19 +31,11 @@ public class FinalScorePanel extends MyPanel {
         add(scoreLabel, BorderLayout.EAST);
 
         //if (score counts and makes leaderboard){ *** need to add these conditions
-        questionResult.setWrapStyleWord(true);
-        questionResult = setJTextArea(questionResult, "");
-        questionResult.setAutoscrolls(true);
-        questionResult.append("1" + Constants.NEWLINE);
-        questionResult.append("2" + Constants.NEWLINE);
-        questionResult.append("3" + Constants.NEWLINE);
-        questionResult.append("4" + Constants.NEWLINE);
-        questionResult.append("5" + Constants.NEWLINE);
-        questionResult.append("6" + Constants.NEWLINE);
-        questionResult.append("7" + Constants.NEWLINE);
-        questionResult.append("8" + Constants.NEWLINE);
-        questionResult.append("9" + Constants.NEWLINE);
-        questionResult.append("10" + Constants.NEWLINE);
+        gamePlayResult.setWrapStyleWord(true);
+        gamePlayResult = setJTextArea(gamePlayResult, "");
+        gamePlayResult.setAutoscrolls(true);
+        gamePlayResult.append("1" + Constants.NEWLINE);
+
         add(jScrollPane1);
 
         JLabel nameLabel = new JLabel("Please enter your name:");
@@ -86,6 +81,20 @@ public class FinalScorePanel extends MyPanel {
             userName = str;
         nameField.setText("");
         return true;
+    }
+    public void clearTextArea(){
+
+        gamePlayResult.setText("Your results" + Constants.NEWLINE);
+    }
+    public void setResultsTextArea(ArrayList<String> questions, ArrayList<String> answers, ArrayList<Integer> points){
+        clearTextArea();
+        System.out.println("txt: " + points);
+        for(int i = 0; i < points.size(); i++){
+            gamePlayResult.append(i+1 +"." + questions.get(i) + Constants.NEWLINE);
+            gamePlayResult.append(" You got..." + points.get(i) + " point(s)" + Constants.NEWLINE);
+            System.out.println("txt: " + points.get(i));
+        }
+        System.out.println("txt: " + gamePlayResult.getText());
     }
 
 }
