@@ -12,9 +12,6 @@ public class Leaderboard {
     String pathName = "";
     String pathNameAnswers = "";
 
-    HashMap<User, Integer> test1 = new HashMap<>();
-    Map<User, Integer> test2 = new HashMap<>();
-
     /**
      * Constructor
      */
@@ -43,21 +40,20 @@ public class Leaderboard {
      * @param score
      */
     public void addScore(String username, String userID, Integer score){
-        User addUser = new User(username, userID);
+        User addUser = new User(username, userID, score);
 
         /*
          * If score in top ten, then add the score to the file.
          * Otherwise, do nothing
          */
         if (isTopTen(score)){
-            HashMap<User, Integer> oldData = getData("");
-            oldData.put(addUser, score); // Add new high score to file
+            ArrayList<User> oldData = getData("");
+            oldData.add(addUser); // Add new high score to file
 
             // Sort oldData by values
-            Map<User, Integer> newData = sortByValues(oldData);
+            Collections.sort(oldData);
 
-            test1 = oldData;
-            test2 = newData;
+
             // Write the new sorted data to the file, overwriting the existing one
 
         }
@@ -73,13 +69,10 @@ public class Leaderboard {
      *          leaders' list.
      */
     public boolean isTopTen(Integer score){
-        ArrayList<Integer> topTenScores = new ArrayList<>();
-        topTenScores.addAll(getData(" ").values());
-        Collections.sort(topTenScores);
-        System.out.println(test1);
-        System.out.println(test2);
+        ArrayList<User> data = getData("");
+        Collections.sort(data);
 
-        return (topTenScores.get(0) < score);
+        return score > data.get(data.size() - 1).getScore();
     }
 
     /**
@@ -91,10 +84,10 @@ public class Leaderboard {
      *                 for a certain category.
      * @return a map containing the user ID and his/her specific score.
      */
-    // The argument is useless so far since pathName is doing the job
-    public HashMap<User, Integer> getData(String category){
+    // The argument is useless SO FAR since pathName is doing the job
+    public ArrayList<User> getData(String category){
         // map to be returned
-        HashMap<User, Integer> ret = new HashMap<>();
+        ArrayList<User> ret = new ArrayList<>();
         String[] lineData;
 
         try {
@@ -103,8 +96,8 @@ public class Leaderboard {
                 // System.out.println(lineData[1]);
 
                 // Add data to the map
-                User xUser = new User(lineData[1], lineData[0]); // Order in files: ID|name|score
-                ret.put(xUser, Integer.valueOf(lineData[2])); // key is user info, and score is value
+                User xUser = new User(lineData[1], lineData[0], Integer.valueOf(lineData[2])); // Order in files: ID|name|score
+                ret.add(xUser);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -145,52 +138,15 @@ public class Leaderboard {
         public void setUserID(String id) { userID = id; }
         public void setScore(Integer s) { score = s; }
 
-        /*
-        @Override
-        public int compareTo(User compareUser) {
-            int compare = ((User)compareUser).getScore();
-
-            // Ascending order
-            return this.score - compare;
-        }
-        */
-
         @Override
         public int compareTo(Object compareUser) {
             int compare = ((User)compareUser).getScore();
 
-            // Ascending order
-            return this.score - compare;
-        }
-    }
+            // Sorts by descending order of score
+            return compare - this.score;
 
-    /**
-     * This function helps up sort a map by values
-     * @param unsortedMap
-     * @return sortedMap
-     */
-    public Map<User, Integer> sortByValues(Map<User, Integer> unsortedMap){
-        Map<User, Integer> sortedMap = new TreeMap<>(new ValueComparator(unsortedMap));
-        sortedMap.putAll(unsortedMap);
-        return sortedMap;
-    }
-
-    /**
-     * This class helps compare the values of the map containing users' data
-     * It serves as a helper class for sorting a map by values
-     */
-    public class ValueComparator implements Comparator{
-        Map<User, Integer> map;
-
-        public ValueComparator(Map map){
-            this.map = map;
-        }
-
-        @Override
-        public int compare(Object key1, Object key2) {
-            Comparable val1 = (Comparable) map.get(key1);
-            Comparable val2 = (Comparable) map.get(key2);
-            return val2.compareTo(val1);
+            // If ascending order
+            // return this.score - compare;
         }
     }
 
