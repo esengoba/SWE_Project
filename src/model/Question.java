@@ -26,7 +26,7 @@ public class Question {
      HashSet<String> distinctQuestions = new HashSet<String>();
 
         public Question() throws IOException {
-            setCategoryPathName(6); // Default to the random
+            setCategoryPathName(6); // Default to the random - USELESS
             this.getQuestion();
         }
 
@@ -81,14 +81,14 @@ public class Question {
 
              for (String line : Files.readAllLines(Paths.get(pathName))) {
 
-                    if (isOdd){
-                        answers.put(line, temp);
-                        questionID.add(line);
-                        isOdd = false;
+                if (isOdd){
+                    answers.put(line, temp);
+                    questionID.add(line);
+                    isOdd = false;
                 } else{
                     questions.add(line);
                     isOdd = true;
-                 }
+                }
              }
          }
 
