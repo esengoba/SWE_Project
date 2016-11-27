@@ -14,25 +14,29 @@ import java.awt.*;
  */
 
 public class ReadyPanel extends MyPanel {
+    private JLabel readyLabel = new JLabel("Are you ready to play?");
+    private JLabel categorySelectionLabel = new JLabel("You selected...");
+    public JLabel categoryLabel = new JLabel("hi");
+    private JTextArea instructions = new JTextArea();
     public ReadyPanel(){
 
         super();
 
         setOpaque(false);
         setBounds(0,0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
-        setLayout(new GridLayout(9,1));
-        JLabel readyLabel = new JLabel("Are you ready to play?");
-        JTextArea instructions = new JTextArea("You will be asked 10 questions" +
+        setLayout(new GridLayout(7,1));
+
+        instructions = setJTextArea(instructions, "You will be asked 10 questions " +
                 "relating to this category. You will have up to 10 seconds to select each answer.");
-        instructions.setWrapStyleWord(true);
-        instructions.setLineWrap(true);
-        instructions.setEditable(true);
-        instructions.setOpaque(false);
+
         instructions.setFont(Constants.QUESTION_FONT);
         readyLabel.setFont(Constants.TITLE_FONT);
+        categorySelectionLabel.setFont(Constants.OTHER_FONT);
+        categoryLabel.setFont(Constants.SCREEN_FONT);
+        categoryLabel.setForeground(Color.BLUE);
         add(readyLabel, BorderLayout.CENTER);
-        JLabel emptySpace = new JLabel();
-        add(emptySpace);
+        add(categorySelectionLabel);
+        add(categoryLabel);
         add(instructions);
         add(createButton(Constants.READY));
         add(createButton(Constants.BACK));

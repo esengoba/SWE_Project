@@ -4,23 +4,26 @@ import view.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.ActionListener;
 
 
-public class SettingsPanel extends MyPanel {
+public class SettingsPanel extends MyPanel implements ActionListener {
     /**
      * Settings class is responsible for implementing all the settings
      * for the game which include sound on/off and
      * having the timer on/off
      */
 
-    private JRadioButton timerStatusOn;
-    private JRadioButton timerStatusOff;
+    public JRadioButton timerStatusOn;
+    public JRadioButton timerStatusOff;
     private ButtonGroup timerButtonGroup;
     private JRadioButton soundStatusOn;
     private JRadioButton soundStatusOff;
     private ButtonGroup soundButtonGroup;
+    public boolean timerEnabled = true;
 
     public SettingsPanel() {
 
@@ -71,23 +74,29 @@ public class SettingsPanel extends MyPanel {
         soundButtonGroup.add(soundStatusOn);
         soundButtonGroup.add(soundStatusOff);
 
-        timerStatusOn.addItemListener(new SettingsPanel.HandlerClass());
-        timerStatusOff.addItemListener(new SettingsPanel.HandlerClass());
-        soundStatusOn.addItemListener(new SettingsPanel.HandlerClass());
-        soundStatusOff.addItemListener(new SettingsPanel.HandlerClass());
-        add(createButton(Constants.BACK));
+       timerStatusOn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Do something here...
+                AbstractButton aButton = (AbstractButton) e.getSource();
+                System.out.println("Selected: " + aButton.getText());
+                timerEnabled = true;
+            }
+        });
+
+        timerStatusOff.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                timerEnabled = false;
+            }
+        });
+
+        add(createButton(Constants.HOME));
 
     }
 
-    private class HandlerClass implements ItemListener {
+    public void actionPerformed(ActionEvent e) {
 
-        private HandlerClass() {
-
-        }
-
-        public void itemStateChanged(ItemEvent event) {
-
-
-        }
     }
+
+
+
 }

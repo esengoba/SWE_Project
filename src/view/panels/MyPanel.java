@@ -20,8 +20,19 @@ public abstract class MyPanel extends JPanel {
         return button;
     }
 
+
     public ArrayList<JButton> getButton(){
         return buttonList;
+    }
+
+    public JTextArea setJTextArea(JTextArea jt, String text){
+        jt.setText(text);
+        jt.setWrapStyleWord(true);
+        jt.setLineWrap(true);
+        jt.setEditable(false);
+        jt.setOpaque(false);
+
+        return jt;
     }
 
 }

@@ -30,7 +30,8 @@ public class Score {
      * configuration.
      */
     public boolean isTimerEnabled(){
-       return false;
+       return( scoreView.settingsPanel.timerEnabled) ? true: false;
+
     }
 
     /**This function updates the score based on whether the timer is enabled
@@ -39,14 +40,21 @@ public class Score {
      * Otherwise, each question counts for 10 points.
      */
     public void updateScore(String response){
-        if (!isTimerEnabled()){
-               if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4).equals(response)){
-                    //update the score
-                    userScore+= 10;
-                }
+        if (isTimerEnabled()){
+            if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4).equals(response)){
+                //update the score
+                userScore = scoreView.questionPanel.i + userScore;
+            }
+
+        } else {
+
+            if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4).equals(response)){
+                //update the score
+                userScore+= 10;
+            }
 
         }
-
+        System.out.println("current score"+ userScore);
     }
     /** This method updates an array list of the answers the user selected*/
     public void updateAnswerArray(String ans){
