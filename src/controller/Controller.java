@@ -26,6 +26,8 @@ public class Controller implements ActionListener {
         //controllerScore.updateScore(responseSelected);
         System.out.println("game play done score update 2");
         controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore);
+        controllerView.finalScorePanel.setResultsTextArea(controllerScore.usersQuestions, controllerScore.usersAnswers,
+                controllerScore.pointsPerQuestion);
         controllerView.displayScore();
     }
 

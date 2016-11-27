@@ -103,6 +103,7 @@ public class View extends JFrame implements ActionListener {
         randomQuestions.remove(0);
 
         questionPanel.questionTextArea.setText(questionPanel.questionMap.get(nextQuestion));
+        score.updateQuestionArray(questionPanel.questionMap.get(nextQuestion));
 
         questionPanel.ansButton1.setText(questionPanel.answerMap.get(nextQuestion).get(0));
         questionPanel.ansButton2.setText(questionPanel.answerMap.get(nextQuestion).get(1));
