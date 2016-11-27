@@ -14,7 +14,10 @@ public class Score {
 
     public int userScore;
      View scoreView;
-     ArrayList<String> usersAnswers = new ArrayList<String>();
+     public ArrayList<String> usersAnswers = new ArrayList<String>();
+     public ArrayList<String> usersQuestions = new ArrayList<String>();
+     public ArrayList<Integer> pointsPerQuestion = new ArrayList<Integer>();
+
 
     public Score(View view){
         userScore = 0;
@@ -25,6 +28,9 @@ public class Score {
     /**The user's score is reset for each new round*/
     public void resetScore(){
         userScore = 0;
+        usersQuestions.clear();
+        usersAnswers.clear();
+        pointsPerQuestion.clear();
     }
 
     /**This function checks to see if the timer is enabled based on the user's
@@ -43,24 +49,35 @@ public class Score {
     public void updateScore(String response){
         if (isTimerEnabled()){
             if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4).equals(response)){
-                //update the score
+                updateAnswerArray(response);
                 userScore = scoreView.questionPanel.i + userScore;
-            }
+                updatePointArray(scoreView.questionPanel.i);
+            } else { updatePointArray(0);}
 
         } else {
 
             if(scoreView.questionPanel.answerMap.get(scoreView.nextQuestion).get(4).equals(response)){
-                //update the score
+                updateAnswerArray(response);
                 userScore+= 10;
-            }
+                updatePointArray(10);
+            } else { updatePointArray(0);}
 
         }
-        System.out.println("current score"+ userScore);
+
     }
-    /** This method updates an array list of the answers the user selected*/
+    /** This method updates an array list of the answers the user selected.*/
     public void updateAnswerArray(String ans){
         usersAnswers.add(ans);
     }
 
+     /** This method updates an array list of the questions from that round.*/
+     public void updateQuestionArray(String ans){
+         usersQuestions.add(ans);
+     }
 
-}
+     /** This method updates an array list of the questions from that round.*/
+     public void updatePointArray(int ans){
+         pointsPerQuestion.add(ans);
+     }
+
+ }
