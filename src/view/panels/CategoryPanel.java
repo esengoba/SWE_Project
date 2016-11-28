@@ -25,7 +25,7 @@ public class CategoryPanel extends MyPanel {
         add(createButton(Constants.GEEKOUT));
         add(createButton(Constants.EARLY2000JAMS));
         add(createButton(Constants.SWECLASSFUNNYFACTS));
-        add(createButton(Constants.RATCHETFACTS));
+        add(createButton(Constants.POPCULTURE));
         add(createButton(Constants.FOODIE));
         add(createButton(Constants.RANDOM));
         add(createButton(Constants.HOME));

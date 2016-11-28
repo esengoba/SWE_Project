@@ -39,7 +39,7 @@ public class Constants {
     public static final String GEEKOUT = "GEEK OUT";
     public static final String FOODIE = "FOODIE";
     public static final String EARLY2000JAMS = "EARLY 2000s JAMS";
-    public static final String RATCHETFACTS = "POP CULTURE";
+    public static final String POPCULTURE = "POP CULTURE";
     public static final String SWECLASSFUNNYFACTS = "CLASS FACTS";
     public static final String RANDOM = "RANDOM";
     public static final String OVERALL = "OVERALL";

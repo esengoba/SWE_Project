@@ -14,7 +14,7 @@ public class FinalScorePanel extends MyPanel {
     public JLabel scoreLabel = new JLabel("Your Score");
     public String userName;
     public JTextField nameField;
-    public boolean canAdd;
+    public JLabel nameLabel;
 
     public JTextArea gamePlayResult = new JTextArea(1, 10);
     JScrollPane jScrollPane1 = new JScrollPane(gamePlayResult);
@@ -36,30 +36,32 @@ public class FinalScorePanel extends MyPanel {
         gamePlayResult.append("1" + Constants.NEWLINE);
         add(jScrollPane1);
 
-        if (canAdd){
-
-        JLabel nameLabel = new JLabel("You made the Leaderboard! Please enter your name:");
+        nameLabel= new JLabel();
+        nameLabel.setText("You made the Leaderboard! Please enter your name:");
         nameField = new JTextField(20);
         nameLabel.setFont(Constants.QUESTION_FONT);
         add(nameLabel, BorderLayout.CENTER);
         add(nameField);
-        add(createButton(Constants.ENTER));
-        }
-
-        else{
-        // use a different layout to display the result of the questions
-        add (createButton(Constants.LEADERBOARD));
-        }
-
-        add(createButton(Constants.HOME)); /*Returns to the home button*/
 
     }
-
 
     /**This method sets the final score for the panel.*/
     public void setScoreLabel(int s, boolean a){ //set display
 
-       scoreLabel.setText("Your score: " + Integer.toString(s)); canAdd = a;
+       scoreLabel.setText("Your score: " + Integer.toString(s));
+
+        if (!a){
+            nameLabel.setVisible(false);
+            nameField.setVisible(false);
+            add(createButton(Constants.LEADERBOARD));
+            add(createButton(Constants.HOME));
+
+        }
+        else { System.out.println("ENTERBUTT");add(createButton(Constants.ENTER));}
+
+        FinalScorePanel.this.revalidate();
+       FinalScorePanel.this.repaint();
+
     }
 
     /**This method grabs the user name.*/
@@ -77,9 +79,9 @@ public class FinalScorePanel extends MyPanel {
         }
 
         else
-
             userName = str;
         nameField.setText("");
+
         return true;
     }
 

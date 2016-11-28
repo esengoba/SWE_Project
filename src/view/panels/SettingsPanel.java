@@ -29,7 +29,7 @@ public class SettingsPanel extends MyPanel implements ActionListener {
     private ButtonGroup soundButtonGroup;
     public boolean timerEnabled = true;
     private AudioStream audioFile;
-    private String audioFilePath = "/Users/ropadenga/IdeaProjects/SWE Project/SWE_Project_Master/src/view/ElectronicPop.wav";
+    private String audioFilePath = "src/view/ElectronicPop.wav";
     private InputStream soundInput;
 
     public SettingsPanel() {
