@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import sun.*;
 import java.io.*;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioInputStream;
 
 /**
  * The Settings class is responsible for implementing all the settings
@@ -26,9 +29,10 @@ public class SettingsPanel extends MyPanel implements ActionListener {
     private JRadioButton soundStatusOff;
     private ButtonGroup soundButtonGroup;
     public boolean timerEnabled = true;
-    private AudioStream audioFile;
+    private AudioInputStream audioFile;
     private String audioFilePath = "src/view/ElectronicPop.wav";
     private InputStream soundInput;
+    private Clip clip;
 
     public SettingsPanel() {
 
@@ -99,8 +103,10 @@ public class SettingsPanel extends MyPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                try{
                    soundInput = new FileInputStream(new File(audioFilePath));
-                   audioFile = new AudioStream(soundInput);
-                   AudioPlayer.player.start(audioFile);
+                   audioFile = AudioSystem.getAudioInputStream(new File(audioFilePath));
+                   clip = AudioSystem.getClip();
+                   clip.open(audioFile);
+                   clip.loop(Clip.LOOP_CONTINUOUSLY);
 
                }catch(Exception ae){ae.printStackTrace();}
 
@@ -109,7 +115,7 @@ public class SettingsPanel extends MyPanel implements ActionListener {
 
         soundStatusOff.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AudioPlayer.player.stop(audioFile);
+                clip.stop();
             }
         });
 
