@@ -13,7 +13,7 @@ import java.awt.*;
 public class CategoryPanel extends MyPanel {
 
     public CategoryPanel(){
-        //Add buttons
+
         super();
 
         setOpaque(false);

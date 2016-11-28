@@ -7,19 +7,17 @@ import view.Constants;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.ActionListener;
 import sun.*;
 import java.io.*;
 
+/**
+ * The Settings class is responsible for implementing all the settings
+ * for the game which includes sound on/off and
+ * having the timer on/off using JRadio buttons.
+ */
 
 public class SettingsPanel extends MyPanel implements ActionListener {
-    /**
-     * Settings class is responsible for implementing all the settings
-     * for the game which include sound on/off and
-     * having the timer on/off
-     */
 
     private JRadioButton timerStatusOn;
     private JRadioButton timerStatusOff;
@@ -41,9 +39,8 @@ public class SettingsPanel extends MyPanel implements ActionListener {
         setBounds(0, 0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
         setLayout(new GridLayout(10, 1));
         JLabel settingsTitle = new JLabel("Settings", SwingConstants.CENTER);
-        settingsTitle.setFont(Constants.HOME_FONT);
+        settingsTitle.setFont(Constants.TITLE_FONT2);
         add(settingsTitle);
-        JLabel emptySpace = new JLabel("");
         JLabel timerLabel = new JLabel("Timer Settings");
         JLabel soundLabel = new JLabel("Sound Settings");
         timerLabel.setFont(Constants.QUESTION_FONT);

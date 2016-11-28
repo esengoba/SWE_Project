@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
  * class to update the question content for each question and resets
  * the timer.
  */
+
 public class Controller implements ActionListener {
     public View controllerView;
     Score controllerScore;
@@ -20,6 +21,11 @@ public class Controller implements ActionListener {
         controllerView = view;
         controllerScore = score;
     }
+
+    /** This method checks to see if the game play is over. 
+     * If so, the final results panel is revealed to the user along with 
+     * their score, and the questions they got right or wrong. 
+     * @param o  */
     public void isGamePlayOver(int o){
         questionCount = 1;
         controllerView.questionPanel.timer.stop();
@@ -45,7 +51,7 @@ public class Controller implements ActionListener {
             controllerScore.updateScore(responseSelected);
             controllerView.updateQuestionContent();
             if (controllerScore.isTimerEnabled()){
-            controllerView.questionPanel.resetTimer();}
+                controllerView.questionPanel.resetTimer();}
         } else {
             responseSelected = e.getActionCommand();
             controllerScore.updateScore(responseSelected);
@@ -53,4 +59,3 @@ public class Controller implements ActionListener {
         }
     }
 }
-

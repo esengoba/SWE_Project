@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class LeaderboardPanel extends MyPanel implements ActionListener {
     ArrayList<JButton> buttonLeaderList = new ArrayList<JButton>();
     JTextArea leaderStandings = new JTextArea(10, 30);
-    JLabel catLabel = new JLabel("Category Standings");
+    JLabel catLabel = new JLabel("Category Standings", SwingConstants.CENTER);
     JButton overallStats = this.createLeaderButton(Constants.OVERALL);
     JButton randomStats = this.createLeaderButton(Constants.RANDOM);
     JButton ratchetStats = this.createLeaderButton(Constants.POPCULTURE);
@@ -35,7 +35,7 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
         setOpaque(false);
         setBounds(0,0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
         setLayout(new GridLayout(4,1));
-        JLabel leaderboardLabel = new JLabel("Leaderboard Standings");
+        JLabel leaderboardLabel = new JLabel("Leaderboard Standings", SwingConstants.CENTER);
         leaderboardLabel.setFont(Constants.TITLE_FONT);
         add(leaderboardLabel);
 
@@ -67,7 +67,7 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
         add(panel2);
         add(panel1);
     }
-
+    /** This method creates a panel with the following characteristics.*/
     JPanel createNewPanel(){
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
@@ -75,6 +75,12 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
         return panel;
     }
 
+    /** This method creates the button and appends the button
+     * to a list. The button receives the text to be placed on
+     * the button.
+     * @param text
+     * @return
+     */
     JButton createLeaderButton(String text) {
         JButton button = new JButton(text);
         button.setFont(Constants.BUTTON_FONT);
@@ -82,6 +88,10 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
         return button;
     }
 
+    /** This method implements the action listener from the
+     * Leaderboard Panel instead of the view.
+     * @param buttons
+     */
     public void addActionListener(ArrayList<JButton> buttons){
 
         for (JButton button: buttons){
@@ -89,7 +99,6 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
 
         }
     }
-
 
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
@@ -140,15 +149,12 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
         }
     }
 
-    /**
-     * Reset the standing when the user switches back and forth between
-     * categories on the leaderboard page
-     */
+    /** This method resets the standing when the user switches back and forth between
+     * categories on the leaderboard page. */
     private void resetStanding() { leaderStandings.setText(""); }
 
     /**
-     * Helper function to display each category
-     */
+     * This is a helper method to display each category. */
     private void displayCategory(){
         Integer counter = 1;
         ArrayList<Leaderboard.User> data = leaderboard.getData();

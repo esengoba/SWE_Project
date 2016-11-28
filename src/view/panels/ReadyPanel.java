@@ -18,6 +18,7 @@ public class ReadyPanel extends MyPanel {
     private JLabel categorySelectionLabel = new JLabel("You selected...");
     public JLabel categoryLabel = new JLabel("hi");
     private JTextArea instructions = new JTextArea();
+    Color otherRed = new Color(205, 92, 92);
     public ReadyPanel(){
 
         super();
@@ -36,7 +37,7 @@ public class ReadyPanel extends MyPanel {
         readyLabel.setFont(Constants.TITLE_FONT);
         categorySelectionLabel.setFont(Constants.OTHER_FONT);
         categoryLabel.setFont(Constants.SCREEN_FONT);
-        categoryLabel.setForeground(Color.BLUE);
+        categoryLabel.setForeground(otherRed);
         add(readyLabel, BorderLayout.CENTER);
         add(categorySelectionLabel);
         add(categoryLabel);

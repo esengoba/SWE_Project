@@ -7,12 +7,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
+/** The Leaderboard class determines which users will be added to the
+ * leaderboard using a comparator. The class adds the user's
+ * score and name are added to the appropriate files.
+ */
+
 public class Leaderboard {
     private String pathName = "";
 
-    /**
-     * Constructor
-     */
     public Leaderboard(){
         this.setCategoryPathName(1);
     }
@@ -28,14 +30,14 @@ public class Leaderboard {
     }
 
     /**
-     * Getters helper function
+     * Getters helper method
      */
     public String[] getFileNames(){
         return new String[]{"overall.txt", "geekout.txt", "jams.txt", "foodie.txt", "ratchet.txt", "classFacts.txt", "random.txt"};
     }
 
     /**
-     * This function takes the ID and score of the player, and places it in
+     * This method takes the ID and score of the player, and places it in
      * the respective file if the score is among the top ten highest scores.
      * @param score
      */
@@ -44,7 +46,7 @@ public class Leaderboard {
 
         /*
          * If score in top ten, then add the score to the file.
-         * Otherwise, do nothing
+         * Otherwise, do nothing.
          */
         if (isTopTen(score)){
             ArrayList<User> fileData = getData();
@@ -108,7 +110,7 @@ public class Leaderboard {
     }
 
     /**
-     * This function checks if a given score is among the top ten in a file
+     * This method checks if a given score is among the top ten in a file
      * of users' scores. This is a helper method to the addScore function.
      * @param score
      * @return true means we need to add the user on the leaders list, and
@@ -123,9 +125,9 @@ public class Leaderboard {
     }
 
     /**
-     * This function basically reads a file to retrieve information for
-     * Leaderboard statistics. This could be used as a helper function for
-     * isTopTen and other potential functions in View.java as well as other
+     * This method basically reads a file to retrieve information for
+     * Leaderboard statistics. This could be used as a helper method for
+     * isTopTen and other potential methods in View.java as well as other
      * classes and functions.
      * @return a map containing the user ID and his/her specific score.
      */
