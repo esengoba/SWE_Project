@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class
 QuestionPanel extends MyPanel {
-    Controller controller;
+    private Controller controller;
     public HashMap<String, String> questionMap = new HashMap<>();
     public HashMap<String, ArrayList<String>> answerMap = new HashMap<>();
     ArrayList<String> playerAnswers = new ArrayList<String>();
@@ -33,12 +33,12 @@ QuestionPanel extends MyPanel {
 
     /*Variables for the timer*/
     public JLabel counter = new JLabel("10", SwingConstants.CENTER);
-    public final static int ONE_SECOND = 1000;
+    private final static int ONE_SECOND = 1000;
     public Timer timer;
     public int i = Integer.parseInt(Constants.COUNTMAX);
-    Color softRed = new Color(178,34,34);
-    Color softGreen = new Color(0,100,0);
-    Color softOrange = new Color(255,127,80);
+    private Color softRed = new Color(178,34,34);
+    private Color softGreen = new Color(0,100,0);
+    private Color softOrange = new Color(255,127,80);
 
     public QuestionPanel(Controller controller){
 
@@ -115,7 +115,7 @@ QuestionPanel extends MyPanel {
         timer.start();
     }
 
-    public void answerButtonActions(JButton button) {
+    private void answerButtonActions(JButton button) {
         button.addActionListener(controller);
         button.addActionListener(new ActionListener() {
             @Override
