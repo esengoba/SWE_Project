@@ -1,10 +1,5 @@
-01|ELIZ|40
-02|Josuel|30
-03|Ropa|30
-04|Dummy4|50
-05|Dummy5|60
-06|Dummy6|70
-07|Dummy7|80
-08|Dummy8|90
-09|Dummy9|10
-10|Dummy10|100
+Liz|16
+Jett|15
+Ropa|12
+Rachel|10
+Josuel|9

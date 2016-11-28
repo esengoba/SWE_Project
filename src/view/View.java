@@ -109,16 +109,16 @@ public class View extends JFrame implements ActionListener {
         questionPanel.ansButton2.setText(questionPanel.answerMap.get(nextQuestion).get(1));
         questionPanel.ansButton3.setText(questionPanel.answerMap.get(nextQuestion).get(2));
         questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
-
-        //System.out.println(questionPanel.answerMap);
     }
 
     public void displayScore(){
         setTitle("Name that Thing! -- Final Score");
         layered.removeAll();
         layered.add(finalScorePanel);
+        addActionListener(finalScorePanel.getButton());
         layered.add(backgroundPanel);
         layered.repaint();
+
     }
 
     /** This implements the action listener for the View class allowing for each
@@ -146,11 +146,9 @@ public class View extends JFrame implements ActionListener {
             case Constants.LEADERBOARD:
                 setTitle("Name that Thing! -- Leaderboard Standings");
                 layered.removeAll();
+                finalScorePanel = new FinalScorePanel(); //***********************temp
                 layered.add(leaderboardPanel);
                 layered.add(backgroundPanel);
-                // Just for testing purposes
-                leaderboard.addScore("", "", 60);
-                leaderboard.isTopTen(90);
                 break;
             case Constants.GEEKOUT:
                 layered.removeAll();
@@ -173,7 +171,7 @@ public class View extends JFrame implements ActionListener {
                 question.setCategoryPathName(3);
                 readyPanel.categoryLabel.setText("FOODIE");
                 break;
-            case Constants.RATCHETFACTS:
+            case Constants.POPCULTURE:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
@@ -196,6 +194,9 @@ public class View extends JFrame implements ActionListener {
                 break;
             case Constants.ENTER:
                 if (finalScorePanel.setUserName()){
+                    setTitle("Name that Thing! -- Leaderboard Standings");
+                    //remove button
+                    finalScorePanel = new FinalScorePanel();
                     layered.removeAll();
                     layered.add(leaderboardPanel);
                     layered.add(backgroundPanel);
@@ -231,6 +232,7 @@ public class View extends JFrame implements ActionListener {
             case Constants.HOME:
                 setTitle("Name that Thing! -- Home");
                 layered.removeAll();
+                finalScorePanel = new FinalScorePanel(); //***********************temp
                 layered.add(homePanel);
                 layered.add(backgroundPanel);
                 // Need to update the reinitialization of random questions after the first game

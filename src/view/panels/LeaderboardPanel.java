@@ -1,5 +1,6 @@
 package view.panels;
 
+import model.Leaderboard;
 import view.Constants;
 
 import javax.swing.*;
@@ -19,11 +20,14 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
     JLabel catLabel = new JLabel("Category Standings");
     JButton overallStats = this.createLeaderButton(Constants.OVERALL);
     JButton randomStats = this.createLeaderButton(Constants.RANDOM);
-    JButton ratchetStats = this.createLeaderButton(Constants.RATCHETFACTS);
+    JButton ratchetStats = this.createLeaderButton(Constants.POPCULTURE);
     JButton foodieStats = this.createLeaderButton(Constants.FOODIE);
     JButton classStats = this.createLeaderButton(Constants.SWECLASSFUNNYFACTS);
     JButton jamsStats = this.createLeaderButton(Constants.EARLY2000JAMS);
     JButton geekStats = this.createLeaderButton(Constants.GEEKOUT);
+    
+    // Create a  Leaderboard object
+    private Leaderboard leaderboard = new Leaderboard();
 
     public LeaderboardPanel(){
         super();
@@ -42,9 +46,8 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
         add(leaderboardLabel);
         catLabel.setFont(Constants.OTHER_FONT);
 
-        leaderStandings = setJTextArea(leaderStandings, "1. Dream Team - 100");
-        leaderStandings.append(Constants.NEWLINE + "2. JoJo - 20");
-        leaderStandings.append(Constants.NEWLINE + "3. ELIZ - 15");
+        // Define the area where to display the list of top scorers
+        leaderStandings = setJTextArea(leaderStandings, "");
 
         panel2.add(catLabel);
         panel2.add(leaderStandings);
@@ -91,34 +94,70 @@ public class LeaderboardPanel extends MyPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case Constants.OVERALL:
+                resetStanding();
                 catLabel.setText("Overall Standings");
-                /**EXAMPLE ALGORITHM
-                 *Clear the 'leaderStandings' text area and read in standings from file
-                 * * Append each line with the correct stats
-                 * */
-                break;
-            case Constants.RANDOM:
-                catLabel.setText("Random Standings");
-                break;
-            case Constants.FOODIE:
-                catLabel.setText("Foodie Standings");
-                break;
-            case Constants.SWECLASSFUNNYFACTS:
-                catLabel.setText("Class Facts Standings");
-                break;
-            case Constants.EARLY2000JAMS:
-                catLabel.setText("2000s Jams Standings");
+                leaderboard.setCategoryPathName(0);
+                displayCategory();
                 break;
             case Constants.GEEKOUT:
+                resetStanding();
                 catLabel.setText("Geek Out Standings");
+                leaderboard.setCategoryPathName(1);
+                displayCategory();
                 break;
-            case Constants.RATCHETFACTS:
-                catLabel.setText("Ratchet Standings");
+            case Constants.EARLY2000JAMS:
+                resetStanding();
+                catLabel.setText("2000s Jams Standings");
+                leaderboard.setCategoryPathName(2);
+                displayCategory();
+                break;
+            case Constants.FOODIE:
+                resetStanding();
+                catLabel.setText("Foodie Standings");
+                leaderboard.setCategoryPathName(3);
+                displayCategory();
+                break;
+            case Constants.POPCULTURE:
+                resetStanding();
+                catLabel.setText("Pop Culture Standings");
+                leaderboard.setCategoryPathName(4);
+                displayCategory();
+                break;
+            case Constants.SWECLASSFUNNYFACTS:
+                resetStanding();
+                catLabel.setText("Class Facts Standings");
+                leaderboard.setCategoryPathName(5);
+                displayCategory();
+                break;
+            case Constants.RANDOM:
+                resetStanding();
+                catLabel.setText("Random Standings");
+                leaderboard.setCategoryPathName(6);
+                displayCategory();
                 break;
             default:
                 break;
         }
+    }
 
+    /**
+     * Reset the standing when the user switches back and forth between
+     * categories on the leaderboard page
+     */
+    private void resetStanding() { leaderStandings.setText(""); }
+
+    /**
+     * Helper function to display each category
+     */
+    private void displayCategory(){
+        Integer counter = 1;
+        ArrayList<Leaderboard.User> data = leaderboard.getData();
+
+        for (Leaderboard.User u: data) {
+            String line = counter.toString() + ". " + u.getUsername() + " - " + u.getScore() + "\n";
+            leaderStandings.append(line);
+            counter++;
+        }
     }
 
 }
