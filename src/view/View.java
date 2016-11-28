@@ -1,6 +1,5 @@
 package view;
 import model.Leaderboard;
-import model.Model;
 import controller.Controller;
 
 import javax.swing.*;
@@ -9,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.*;
-
 
 import model.Question;
 import model.Score;
@@ -24,7 +22,6 @@ import static view.Constants.WINDOW_WIDTH;
  * the home panel,ready panel, and questions panel.
  */
 public class View extends JFrame implements ActionListener {
-    private Model model;
 
     private HomePanel homePanel = new HomePanel();
     private BackgroundPanel backgroundPanel = new BackgroundPanel();
@@ -56,7 +53,6 @@ public class View extends JFrame implements ActionListener {
         controller = new Controller(this, score);
         questionPanel = new QuestionPanel(controller);
 
-        model = new Model();
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setTitle("Name that Thing! -- Home");
         layered.add(homePanel);
@@ -74,7 +70,8 @@ public class View extends JFrame implements ActionListener {
         addActionListener(leaderboardPanel.getButton());
 
     }
-    /* Add this as ActionListener for all buttons */
+    /* This method adds the View's ActionListener for all buttons in
+     * the array list. */
     public void addActionListener(ArrayList<JButton> buttons){
 
         for (JButton button: buttons){
@@ -82,7 +79,7 @@ public class View extends JFrame implements ActionListener {
 
         }
     }
-    /**This function updates the question content for the question
+    /**This method updates the question content for the question
      * interface. It uses the Question class' methods to get a single
      * question, and the respective answers and displays on the screen.
      */
@@ -111,6 +108,9 @@ public class View extends JFrame implements ActionListener {
         questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
     }
 
+    /** This method displays the final results of the game by
+     * displaying the final score panel.
+     */
     public void displayScore(){
         setTitle("Name that Thing! -- Final Score");
         layered.removeAll();
@@ -195,6 +195,7 @@ public class View extends JFrame implements ActionListener {
             case Constants.ENTER:
                 if (finalScorePanel.setUserName()){
                     setTitle("Name that Thing! -- Leaderboard Standings");
+                    leaderboard.addScore(finalScorePanel.getUsername(), finalScorePanel.getScore());
                     //remove button
                     finalScorePanel = new FinalScorePanel();
                     layered.removeAll();
