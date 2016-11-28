@@ -11,6 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
+/**The Question Panel class implements the GUI for the question
+ * page. This class also implements a timer for when the user
+ * selects to have a more competitive game play experience.
+ */
 public class
 QuestionPanel extends MyPanel {
     Controller controller;
@@ -32,6 +36,9 @@ QuestionPanel extends MyPanel {
     public final static int ONE_SECOND = 1000;
     public Timer timer;
     public int i = Integer.parseInt(Constants.COUNTMAX);
+    Color softRed = new Color(178,34,34);
+    Color softGreen = new Color(0,100,0);
+    Color softOrange = new Color(255,127,80);
 
     public QuestionPanel(Controller controller){
 
@@ -82,11 +89,11 @@ QuestionPanel extends MyPanel {
                     } else {
                         i--;
                         if (i >= 7)
-                            counter.setForeground(Color.GREEN);
+                            counter.setForeground(softGreen);
                         else if (i > 3)
-                            counter.setForeground(Color.YELLOW);
+                            counter.setForeground(softOrange);
                         else
-                            counter.setForeground(Color.RED);
+                            counter.setForeground(softRed);
                         counter.setText(Integer.toString(i));
                     }
                 }
@@ -95,20 +102,19 @@ QuestionPanel extends MyPanel {
 
     }
 
-    /**Reset the timer to 10 */
+    /** This method resets the timer to 10. */
     public void resetTimer(){
         i = 10;
         timer.restart();
-        counter.setForeground(Color.GREEN);
+        counter.setForeground(softGreen);
         counter.setText(Integer.toString(i));
     }
 
-    /**Countdown implements a ten second timer for each question*/
+    /**This method implements a ten second timer for each question.*/
     public void countdown(){
         timer.start();
     }
 
-    /*Double check the right action listeners are implemented*/
     public void answerButtonActions(JButton button) {
         button.addActionListener(controller);
         button.addActionListener(new ActionListener() {

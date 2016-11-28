@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
  * class to update the question content for each question and resets
  * the timer.
  */
+
 public class Controller implements ActionListener {
     public View controllerView;
     Score controllerScore;
@@ -20,27 +21,33 @@ public class Controller implements ActionListener {
         controllerView = view;
         controllerScore = score;
     }
+
+    /** This method checks to see if the game play is over.
+     * If so, the final results panel is revealed to the user along with
+     * their score, and the questions they got right or wrong.
+     * @param o
+     */
     public void isGamePlayOver(int o){
         questionCount = 1;
         controllerView.questionPanel.timer.stop();
-        //controllerScore.updateScore(responseSelected);
-        System.out.println("game play done score update 2");
         controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore,
                 (controllerView.leaderboard.isTopTen(controllerScore.userScore)));
-        controllerView.finalScorePanel.setResultsTextArea(controllerScore.usersQuestions, controllerScore.usersAnswers,
+        controllerView.finalScorePanel.setResultsTextArea(controllerScore.usersQuestions,
+                controllerScore.usersAnswers,
                 controllerScore.pointsPerQuestion);
-        // controllerView.finalScorePanel.addInfo();
         controllerView.displayScore();
-        // controllerView.leaderboard.addScore(controllerView.finalScorePanel.getUsername(), controllerView.finalScorePanel.getScore());
     }
 
+    /** This action gives the illusion of game play by updating the
+     * question after the user made a selection.
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         questionCount++;
         if (questionCount <= 10) {
             System.out.println(questionCount);
             responseSelected = e.getActionCommand();
-
             controllerScore.updateAnswerArray(responseSelected);
             controllerScore.updateScore(responseSelected);
             controllerView.updateQuestionContent();

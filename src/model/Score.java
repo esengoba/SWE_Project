@@ -1,15 +1,14 @@
 package model;
-import model.Model;
-import controller.Controller;
 import view.View;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.util.*;
 
 
  /**The Score class determines the user's score based on whether the time
-  * is enabled. This class exchanges data with the Setting class/ Settings panel*/
+  * is enabled. This class exchanges data with the Setting class and
+  * Settings panel*/
+
 public class Score {
 
     public int userScore;
@@ -25,7 +24,7 @@ public class Score {
         //scoreController = new Controller(this);
     }
 
-    /**The user's score is reset for each new round*/
+    /**This method resets user's score for each new round. */
     public void resetScore(){
         userScore = 0;
         usersQuestions.clear();
@@ -33,7 +32,7 @@ public class Score {
         pointsPerQuestion.clear();
     }
 
-    /**This function checks to see if the timer is enabled based on the user's
+    /**This method checks to see if the timer is enabled based on the user's
      * configuration.
      */
     public boolean isTimerEnabled(){
@@ -41,7 +40,7 @@ public class Score {
 
     }
 
-    /**This function updates the score based on whether the timer is enabled
+    /**This method updates the score based on whether the timer is enabled
      * and the user got the answer correct. If the timer is enabled, then the
      * user gets 0-10 points depending on how quickly the question is answered.
      * Otherwise, each question counts for 10 points.

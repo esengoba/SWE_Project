@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class HomePanel extends MyPanel {
 
-    /** Home Panel constructor adds the three buttons to the home screen, appends
+    /** This Home Panel class adds the three buttons to the home screen, appends
      * the button list with newly added buttons, and sets screen parameters.
      */
 
@@ -21,8 +21,10 @@ public class HomePanel extends MyPanel {
         JLabel triviaTitle = new JLabel("Name that Thing!", SwingConstants.CENTER);
         triviaTitle.setFont(Constants.HOME_FONT);
         add(triviaTitle);
-        JLabel emptySpace = new JLabel("");
-        add(emptySpace);
+        JLabel phrase = new JLabel("A Trivia Game powered by the Dream Team",
+                SwingConstants.CENTER);
+        phrase.setFont(Constants.OTHER_FONT);
+        add(phrase);
         add(createButton(Constants.START));
         add(createButton(Constants.SETTINGS));
         add(createButton(Constants.LEADERBOARD));
