@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.*;
 
-
 import model.Question;
 import model.Score;
 import view.panels.*;
@@ -195,6 +194,7 @@ public class View extends JFrame implements ActionListener {
             case Constants.ENTER:
                 if (finalScorePanel.setUserName()){
                     setTitle("Name that Thing! -- Leaderboard Standings");
+                    leaderboard.addScore(finalScorePanel.getUsername(), finalScorePanel.getScore());
                     //remove button
                     finalScorePanel = new FinalScorePanel();
                     layered.removeAll();
