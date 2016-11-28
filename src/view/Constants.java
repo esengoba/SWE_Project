@@ -31,7 +31,7 @@ public class Constants {
 
     // Title for the font
     public static final Font TITLE_FONT = new Font("American Typewriter", Font.BOLD, 55);
-    public static final Font TITLE_FONT2 = new Font("American Typewriter", Font.BOLD, 50);
+
     // Length of the counter
     public static final String COUNTMAX = "10";
 

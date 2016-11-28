@@ -120,9 +120,8 @@ QuestionPanel extends MyPanel {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
             }
+
         });
 
     }
