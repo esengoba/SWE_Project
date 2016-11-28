@@ -3,8 +3,6 @@ import view.View;
 
 
 import java.util.*;
-import java.awt.Color;
-import java.awt.Graphics;
 
 
  /**The Score class determines the user's score based on whether the time
@@ -53,7 +51,6 @@ public class Score {
                 updateAnswerArray(response);
                 userScore = scoreView.questionPanel.i + userScore;
                 updatePointArray(scoreView.questionPanel.i);
-
             } else { updatePointArray(0);}
 
         } else {
