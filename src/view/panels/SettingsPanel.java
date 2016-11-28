@@ -48,7 +48,7 @@ public class SettingsPanel extends MyPanel implements ActionListener {
         setBounds(0, 0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
         setLayout(new GridLayout(10, 1));
         JLabel settingsTitle = new JLabel("Settings", SwingConstants.CENTER);
-        settingsTitle.setFont(Constants.TITLE_FONT2);
+        settingsTitle.setFont(Constants.TITLE_FONT);
         add(settingsTitle);
         JLabel timerLabel = new JLabel("Timer Settings");
         JLabel soundLabel = new JLabel("Sound Settings");

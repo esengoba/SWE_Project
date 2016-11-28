@@ -15,6 +15,7 @@ public class Constants {
     public static final Font OTHER_FONT = new Font("American Typewriter", Font.PLAIN, 30);
     public static final Font SCREEN_FONT = new Font("American Typewriter", Font.PLAIN, 40);
     public static final Font BUTTON_FONT = new Font("American Typewriter", Font.PLAIN, 20);
+    public static final Font INSTRUCTIONS_FONT = new Font("American Typewriter", Font.PLAIN, 18);
     public static final Font QUESTION_FONT = new Font("American Typewriter", Font.PLAIN, 20);
     public static final Font HOME_FONT = new Font("American Typewriter", Font.PLAIN, 70);
 
@@ -43,10 +44,6 @@ public class Constants {
     public static final String SWECLASSFUNNYFACTS = "CLASS FACTS";
     public static final String RANDOM = "RANDOM";
     public static final String OVERALL = "OVERALL";
-
-    //Settings categories
-    public static final String TIMER = "TIMER";
-    public static final String SOUND = "SOUND";
 
     //Leaderboard categories
     public final static String NEWLINE = "\n";

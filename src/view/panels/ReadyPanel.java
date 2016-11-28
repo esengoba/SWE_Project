@@ -18,7 +18,7 @@ public class ReadyPanel extends MyPanel {
     private JLabel categorySelectionLabel = new JLabel("You selected...");
     public JLabel categoryLabel = new JLabel("hi");
     private JTextArea instructions = new JTextArea();
-    Color otherRed = new Color(205, 92, 92);
+    private Color otherRed = new Color(205, 92, 92);
     public ReadyPanel(){
 
         super();
@@ -31,7 +31,7 @@ public class ReadyPanel extends MyPanel {
                 "relating to this category. You have 10 seconds to select " +
                 "an answer.");
 
-        instructions.setFont(Constants.INSTRUCTION_FONT);
+        instructions.setFont(Constants.INSTRUCTIONS_FONT);
         readyLabel.setFont(Constants.TITLE_FONT);
         categorySelectionLabel.setFont(Constants.OTHER_FONT);
         categoryLabel.setFont(Constants.SCREEN_FONT);
