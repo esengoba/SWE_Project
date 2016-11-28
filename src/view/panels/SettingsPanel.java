@@ -1,22 +1,15 @@
 package view.panels;
 
-import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
 import view.Constants;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import sun.*;
-import javax.sound.*;
 import java.io.*;
-import javax.sound.sampled.Clip;
 
 /**
  * The Settings class is responsible for implementing all the settings
@@ -33,11 +26,9 @@ public class SettingsPanel extends MyPanel implements ActionListener {
     private JRadioButton soundStatusOff;
     private ButtonGroup soundButtonGroup;
     public boolean timerEnabled = true;
-    private AudioInputStream audioFile;
+    private AudioStream audioFile;
     private String audioFilePath = "src/view/ElectronicPop.wav";
     private InputStream soundInput;
-    private AudioData data;
-    private Clip clip;
 
     public SettingsPanel() {
 
@@ -108,10 +99,8 @@ public class SettingsPanel extends MyPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                try{
                    soundInput = new FileInputStream(new File(audioFilePath));
-                   audioFile = AudioSystem.getAudioInputStream(new File(audioFilePath));
-                   clip = AudioSystem.getClip();
-                   clip.open(audioFile);
-                   clip.loop(Clip.LOOP_CONTINUOUSLY);
+                   audioFile = new AudioStream(soundInput);
+                   AudioPlayer.player.start(audioFile);
 
                }catch(Exception ae){ae.printStackTrace();}
 
@@ -120,7 +109,7 @@ public class SettingsPanel extends MyPanel implements ActionListener {
 
         soundStatusOff.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                clip.stop();
+                AudioPlayer.player.stop(audioFile);
             }
         });
 

@@ -1,5 +1,7 @@
+Titanium|87
 null|48
 Cherubin|40
+DwightShrute|32
 Riposta|30
 null|29
 Francois|29
@@ -11,8 +13,6 @@ Liz|16
 Liz|16
 Liz|16
 Liz|16
-Liz|16
-Jett|15
 Jett|15
 Jett|15
 Jett|15
