@@ -50,11 +50,11 @@ public class FinalScorePanel extends MyPanel {
     /**
      * This method sets the final score for the panel.
      */
-    public void setScoreLabel(int s, boolean a){ //set display
+    public void setScoreLabel(int s, boolean a, boolean t){ //set display
 
        scoreLabel.setText("Your score: " + Integer.toString(s));
 
-        if (!a){
+        if (!a || !t){
             nameLabel.setVisible(false);
             nameField.setVisible(false);
             add(createButton(Constants.LEADERBOARD));
@@ -97,6 +97,12 @@ public class FinalScorePanel extends MyPanel {
         gamePlayResult.setText("Your results" + Constants.NEWLINE);
     }
 
+    /**This method tells the user which questions they got right and
+     * the number of points earned per question.
+     * @param questions
+     * @param answers
+     * @param points
+     */
     public void setResultsTextArea(ArrayList<String> questions, ArrayList<String> answers, ArrayList<Integer> points){
         clearTextArea();
         System.out.println("txt: " + points);
@@ -109,7 +115,8 @@ public class FinalScorePanel extends MyPanel {
     }
 
     /**
-     * Getters to add username and score into the database
+     * These methods are the getters to add username and score
+     * into the database.
      * @return
      */
     public String getUsername(){ return username; }
