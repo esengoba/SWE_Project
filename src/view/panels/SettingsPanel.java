@@ -1,9 +1,14 @@
 package view.panels;
 
+import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
+
 import view.Constants;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +16,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionListener;
 import sun.*;
+import javax.sound.*;
 import java.io.*;
+import javax.sound.sampled.Clip;
 
 
 public class SettingsPanel extends MyPanel implements ActionListener {
@@ -28,9 +35,11 @@ public class SettingsPanel extends MyPanel implements ActionListener {
     private JRadioButton soundStatusOff;
     private ButtonGroup soundButtonGroup;
     public boolean timerEnabled = true;
-    private AudioStream audioFile;
+    private AudioInputStream audioFile;
     private String audioFilePath = "src/view/ElectronicPop.wav";
     private InputStream soundInput;
+    private AudioData data;
+    private Clip clip;
 
     public SettingsPanel() {
 
@@ -102,8 +111,10 @@ public class SettingsPanel extends MyPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                try{
                    soundInput = new FileInputStream(new File(audioFilePath));
-                   audioFile = new AudioStream(soundInput);
-                   AudioPlayer.player.start(audioFile);
+                   audioFile = AudioSystem.getAudioInputStream(new File(audioFilePath));
+                   clip = AudioSystem.getClip();
+                   clip.open(audioFile);
+                   clip.loop(Clip.LOOP_CONTINUOUSLY);
 
                }catch(Exception ae){ae.printStackTrace();}
 
@@ -112,7 +123,7 @@ public class SettingsPanel extends MyPanel implements ActionListener {
 
         soundStatusOff.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AudioPlayer.player.stop(audioFile);
+                clip.stop();
             }
         });
 

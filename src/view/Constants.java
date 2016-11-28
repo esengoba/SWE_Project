@@ -16,6 +16,7 @@ public class Constants {
     public static final Font SCREEN_FONT = new Font("American Typewriter", Font.PLAIN, 40);
     public static final Font BUTTON_FONT = new Font("American Typewriter", Font.PLAIN, 20);
     public static final Font QUESTION_FONT = new Font("American Typewriter", Font.PLAIN, 20);
+    public static final Font INSTRUCTION_FONT = new Font("American Typewriter", Font.PLAIN, 15);
     public static final Font HOME_FONT = new Font("American Typewriter", Font.PLAIN, 70);
 
     // Button string constants for navigation
@@ -30,7 +31,7 @@ public class Constants {
     public static final String ENTER = "ENTER";
 
     // Title for the font
-    public static final Font TITLE_FONT = new Font("American Typewriter", Font.BOLD, 55);
+    public static final Font TITLE_FONT = new Font("American Typewriter", Font.BOLD, 50);
 
     // Length of the counter
     public static final String COUNTMAX = "10";

@@ -24,15 +24,13 @@ public class ReadyPanel extends MyPanel {
 
         setOpaque(false);
         setBounds(0,0, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
-        setLayout(new GridLayout(6,1));
+        setLayout(new GridLayout(7,1));
 
         instructions = setJTextArea(instructions, "You will be asked 10 questions " +
-                "relating to this category. Each question is worth" +
-                "up to 10 points. If the timer is enabled, you will have up to 10 seconds to select " +
-                "each answer." +
-                "Otherwise, take your time!");
+                "relating to this category. You have 10 seconds to select " +
+                "an answer.");
 
-        instructions.setFont(Constants.QUESTION_FONT);
+        instructions.setFont(Constants.INSTRUCTION_FONT);
         readyLabel.setFont(Constants.TITLE_FONT);
         categorySelectionLabel.setFont(Constants.OTHER_FONT);
         categoryLabel.setFont(Constants.SCREEN_FONT);
