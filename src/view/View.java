@@ -107,7 +107,10 @@ public class View extends JFrame implements ActionListener {
         questionPanel.ansButton3.setText(questionPanel.answerMap.get(nextQuestion).get(2));
         questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
     }
-    /** This method displays the final results of the Gam
+
+    /** This method displays the final results of the game by
+     * displaying the final score panel.
+     */
     public void displayScore(){
         setTitle("Name that Thing! -- Final Score");
         layered.removeAll();

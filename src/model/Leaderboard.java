@@ -30,7 +30,7 @@ public class Leaderboard {
     }
 
     /**
-     * Getters helper function
+     * Getters helper method
      */
     public String[] getFileNames(){
         return new String[]{"overall.txt", "geekout.txt", "jams.txt", "foodie.txt", "ratchet.txt", "classFacts.txt", "random.txt"};
