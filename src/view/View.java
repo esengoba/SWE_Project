@@ -109,8 +109,6 @@ public class View extends JFrame implements ActionListener {
         questionPanel.ansButton2.setText(questionPanel.answerMap.get(nextQuestion).get(1));
         questionPanel.ansButton3.setText(questionPanel.answerMap.get(nextQuestion).get(2));
         questionPanel.ansButton4.setText(questionPanel.answerMap.get(nextQuestion).get(3));
-
-        //System.out.println(questionPanel.answerMap);
     }
 
     public void displayScore(){
@@ -148,9 +146,6 @@ public class View extends JFrame implements ActionListener {
                 layered.removeAll();
                 layered.add(leaderboardPanel);
                 layered.add(backgroundPanel);
-                // Just for testing purposes
-                leaderboard.addScore("", "", 60);
-                leaderboard.isTopTen(90);
                 break;
             case Constants.GEEKOUT:
                 layered.removeAll();
@@ -173,7 +168,7 @@ public class View extends JFrame implements ActionListener {
                 question.setCategoryPathName(3);
                 readyPanel.categoryLabel.setText("FOODIE");
                 break;
-            case Constants.RATCHETFACTS:
+            case Constants.POPCULTURE:
                 layered.removeAll();
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
