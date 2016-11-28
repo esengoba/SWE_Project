@@ -6,13 +6,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-/**This class supports the interface for showing the final score
+/**
+ * This class supports the interface for showing the final score
  * to the user. This class also extends MyPanel.
  */
 public class FinalScorePanel extends MyPanel {
     JLabel scoreTitle = new JLabel("Results");
     public JLabel scoreLabel = new JLabel("Your Score");
-    public String userName;
+    public String username;
+    public Integer score;
     public JTextField nameField;
     public JLabel nameLabel;
 
@@ -45,7 +47,9 @@ public class FinalScorePanel extends MyPanel {
 
     }
 
-    /**This method sets the final score for the panel.*/
+    /**
+     * This method sets the final score for the panel.
+     */
     public void setScoreLabel(int s, boolean a){ //set display
 
        scoreLabel.setText("Your score: " + Integer.toString(s));
@@ -56,17 +60,22 @@ public class FinalScorePanel extends MyPanel {
             add(createButton(Constants.LEADERBOARD));
             add(createButton(Constants.HOME));
 
+        } else{
+            System.out.println("ENTERBUTT");
+            add(createButton(Constants.ENTER));
+            // Add score
+            score = s;
         }
-        else { System.out.println("ENTERBUTT");add(createButton(Constants.ENTER));}
 
         FinalScorePanel.this.revalidate();
-       FinalScorePanel.this.repaint();
+        FinalScorePanel.this.repaint();
 
     }
 
-    /**This method grabs the user name.*/
+    /**
+     * This method grabs the username.
+     */
     public boolean setUserName(){
-
         String str = nameField.getText().trim();
 
         if (str == null || !str.matches("[A-Za-z0-9_]+" )|| str.length()>20 || str.length()< 5) {
@@ -76,21 +85,17 @@ public class FinalScorePanel extends MyPanel {
             nameField.setText("");
 
             return false;
+        } else {
+            username = str;
         }
-
-        else
-            userName = str;
         nameField.setText("");
 
         return true;
     }
 
-
     public void clearTextArea(){
-
         gamePlayResult.setText("Your results" + Constants.NEWLINE);
     }
-
 
     public void setResultsTextArea(ArrayList<String> questions, ArrayList<String> answers, ArrayList<Integer> points){
         clearTextArea();
@@ -103,5 +108,11 @@ public class FinalScorePanel extends MyPanel {
         System.out.println("txt: " + gamePlayResult.getText());
     }
 
+    /**
+     * Getters to add username and score into the database
+     * @return
+     */
+    public String getUsername(){ return username; }
+    public Integer getScore() { return score; }
 
 }

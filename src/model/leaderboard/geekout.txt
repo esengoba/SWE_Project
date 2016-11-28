@@ -1,5 +1,10 @@
+null|48
+Cherubin|40
+Riposta|30
+null|29
+Francois|29
+GoodAtIt|20
+HahaGoodLad|20
 Liz|16
 Jett|15
 Ropa|12
-Rachel|10
-Josuel|7
