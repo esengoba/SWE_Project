@@ -30,7 +30,6 @@ public class Controller implements ActionListener {
         questionCount = 1;
         controllerView.questionPanel.timer.stop();
         //controllerScore.updateScore(responseSelected);
-        System.out.println("game play done score update 2");
         controllerView.finalScorePanel.setScoreLabel(controllerScore.userScore,
                 (controllerView.leaderboard.isTopTen(controllerScore.userScore)), controllerView.score.isTimerEnabled());
 
@@ -43,7 +42,7 @@ public class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         questionCount++;
         if (questionCount <= 10) {
-            System.out.println(questionCount);
+            //System.out.println(questionCount);
             responseSelected = e.getActionCommand();
 
             controllerScore.updateAnswerArray(responseSelected);

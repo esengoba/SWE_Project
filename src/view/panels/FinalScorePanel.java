@@ -105,13 +105,11 @@ public class FinalScorePanel extends MyPanel {
      */
     public void setResultsTextArea(ArrayList<String> questions, ArrayList<String> answers, ArrayList<Integer> points){
         clearTextArea();
-        System.out.println("txt: " + points);
         for(int i = 0; i < points.size(); i++){
             gamePlayResult.append(i+1 +"." + questions.get(i) + Constants.NEWLINE);
             gamePlayResult.append(" You got..." + points.get(i) + " point(s)" + Constants.NEWLINE);
-            System.out.println("txt: " + points.get(i));
         }
-        System.out.println("txt: " + gamePlayResult.getText());
+
     }
 
     /**
