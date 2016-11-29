@@ -155,6 +155,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(1);
+                leaderboard.setCategoryPathName(1);
                 readyPanel.categoryLabel.setText("GEEK OUT");
                 break;
             case Constants.EARLY2000JAMS:
@@ -162,6 +163,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(2);
+                leaderboard.setCategoryPathName(2);
                 readyPanel.categoryLabel.setText("EARLY 2000s JAMS");
                 break;
             case Constants.FOODIE:
@@ -169,6 +171,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(3);
+                leaderboard.setCategoryPathName(3);
                 readyPanel.categoryLabel.setText("FOODIE");
                 break;
             case Constants.POPCULTURE:
@@ -176,6 +179,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(4);
+                leaderboard.setCategoryPathName(4);
                 readyPanel.categoryLabel.setText("POP CULTURE");
                 break;
             case Constants.SWECLASSFUNNYFACTS:
@@ -183,6 +187,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(5);
+                leaderboard.setCategoryPathName(5);
                 readyPanel.categoryLabel.setText("CLASS FACTS");
                 break;
             case Constants.RANDOM:
@@ -190,6 +195,7 @@ public class View extends JFrame implements ActionListener {
                 layered.add(readyPanel);
                 layered.add(backgroundPanel);
                 question.setCategoryPathName(6);
+                leaderboard.setCategoryPathName(6);
                 readyPanel.categoryLabel.setText("RANDOM: A BIT OF EVERYTHING");
                 break;
             case Constants.ENTER:
