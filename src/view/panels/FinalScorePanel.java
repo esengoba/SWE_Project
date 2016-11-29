@@ -61,7 +61,6 @@ public class FinalScorePanel extends MyPanel {
             add(createButton(Constants.HOME));
 
         } else{
-            System.out.println("ENTERBUTT");
             add(createButton(Constants.ENTER));
             // Add score
             score = s;
