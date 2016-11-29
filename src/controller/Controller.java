@@ -36,9 +36,7 @@ public class Controller implements ActionListener {
 
         controllerView.finalScorePanel.setResultsTextArea(controllerScore.usersQuestions, controllerScore.usersAnswers,
                 controllerScore.pointsPerQuestion);
-        // controllerView.finalScorePanel.addInfo();
         controllerView.displayScore();
-        // controllerView.leaderboard.addScore(controllerView.finalScorePanel.getUsername(), controllerView.finalScorePanel.getScore());
     }
 
     @Override

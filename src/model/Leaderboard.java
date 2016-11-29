@@ -1,5 +1,7 @@
 package model;
 
+import view.Constants;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -57,7 +59,7 @@ public class Leaderboard {
             Collections.sort(fileData);
 
             // Drop the lowest score, the last one in the list, if the list has 10 elements
-            if (fileData.size() > 10) {
+            if (fileData.size() > Constants.MAXLEAD) {
                 fileData.remove(fileData.size() - 1);
             }
 
@@ -98,7 +100,7 @@ public class Leaderboard {
         ArrayList<User> data = new ArrayList<>();
         String[] files = getFileNames();
 
-        for (int i = 1; i < 7; i++){
+        for (int i = 1; i < Constants.MAXLEAD; i++){
             ArrayList<User> temp = new ArrayList<>();
             readFile(temp, "src/model/leaderboard/" + files[i]);
             data.addAll(temp);
@@ -106,6 +108,7 @@ public class Leaderboard {
 
         Collections.sort(data);
 
+        data = new ArrayList<>(data.subList(0, Constants.MAXLEAD)); // To get only data to print on screen
         writeFile(data, "src/model/leaderboard/overall.txt");
     }
 

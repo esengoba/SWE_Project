@@ -46,5 +46,6 @@ public class Constants {
     public static final String OVERALL = "OVERALL";
 
     //Leaderboard categories
-    public final static String NEWLINE = "\n";
+    public static final String NEWLINE = "\n";
+    public static final Integer MAXLEAD = 7;
 }
